@@ -30,11 +30,9 @@ GEM
     activesupport (3.0.3)
     acts-as-taggable-on (2.0.6)
     annotate (2.4.0)
-    archive-tar-minitar (0.5.2)
     arel (2.0.6)
     bcrypt-ruby (2.1.2)
     builder (2.1.2)
-    cancan (1.4.1)
     capybara (0.4.0)
       celerity (>= 0.7.9)
       culerity (>= 0.2.4)
@@ -47,7 +45,6 @@ GEM
     celerity (0.8.4)
     childprocess (0.1.4)
       ffi (~> 0.6.3)
-    columnize (0.3.2)
     configuration (1.2.0)
     cucumber (0.9.4)
       builder (~> 2.1.2)
@@ -80,8 +77,6 @@ GEM
     launchy (0.3.7)
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
-    linecache19 (0.5.11)
-      ruby_core_source (>= 0.1.4)
     mail (2.2.11)
       activesupport (>= 2.3.6)
       i18n (~> 0.5.0)
@@ -131,16 +126,6 @@ GEM
       activesupport (~> 3.0)
       railties (~> 3.0)
       rspec (~> 2.2.0)
-    ruby-debug-base19 (0.11.24)
-      columnize (>= 0.3.1)
-      linecache19 (>= 0.5.11)
-      ruby_core_source (>= 0.1.4)
-    ruby-debug19 (0.11.6)
-      columnize (>= 0.3.1)
-      linecache19 (>= 0.5.11)
-      ruby-debug-base19 (>= 0.11.19)
-    ruby_core_source (0.1.4)
-      archive-tar-minitar (>= 0.5.2)
     rubyzip (0.9.4)
     selenium-webdriver (0.1.1)
       childprocess (= 0.1.4)
@@ -166,7 +151,6 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   annotate
-  cancan
   capybara
   cucumber
   cucumber-rails
@@ -180,6 +164,5 @@ DEPENDENCIES
   rails (= 3.0.3)
   rspec (>= 2.0.0.beta.12)
   rspec-rails (>= 2.0.0.beta.17)
-  ruby-debug19
   spork
   will_paginate (~> 3.0.pre2)
