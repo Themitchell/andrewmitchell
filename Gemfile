@@ -4,7 +4,6 @@ gem 'rails', '3.0.3'
 
 gem 'mysql2'
 gem 'devise', '1.1.2'
-gem 'cancan'
 gem "will_paginate", "~> 3.0.pre2"
 gem 'acts-as-taggable-on'
 gem 'paperclip'
@@ -23,6 +22,6 @@ group :development, :test do # avoid these gems in production
   gem 'factory_girl_rails'
   gem 'spork'
   gem 'launchy'
-  gem 'ruby-debug19'
+  # gem 'ruby-debug19'
   gem 'annotate'
 end
