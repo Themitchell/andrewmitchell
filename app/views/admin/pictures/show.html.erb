@@ -1,0 +1,24 @@
+<div id="picture admin">
+	<div class="title_block clearfix">
+		<h1><%= @picture.title %></h1>
+		<%= link_to 'Back to Pictures', admin_pictures_path, :class => 'back_link' %>
+		<%= link_to 'Edit Pictures', edit_admin_picture_path, :class => 'edit_link' %>
+		<%= link_to 'Delete Pictures', admin_picture_path(@picture), :method => :delete, :class => 'delete_link' %>
+	</div>
+
+	<%= render :partial => 'shared/flash_messages' %>
+		
+	<div class="full_picture_display"><%= image_tag @picture.picture.url(:picture), :alt => @picture.title %></div>
+	<p class="author">Posted by <span><%= @picture.author.username %></span> on <span><%= published_on_text(@picture) %></span></p>
+	<p class="description"><%= @picture.description %></p>
+	<% unless @picture.tags.empty? %>
+		<p class="tags">
+			<b>Tagged with:</b>
+			<% if @picture.tags %>
+				<% @picture.tags.each do |t| %>
+					<%= t.name %>
+				<% end %>
+			<% end%>
+		</p>
+	<% end %>
+</div>

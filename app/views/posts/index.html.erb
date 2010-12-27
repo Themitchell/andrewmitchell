@@ -1,0 +1,14 @@
+<div id="posts_page">
+	<div class="title_block clearfix">
+		<h1>Blog</h1>
+	</div>
+	<%= render :partial => 'shared/flash_messages' %>
+
+	<% if @posts.empty? %>
+		<p>There are currently no posts.</p>
+	<% else %>
+		<%= render :partial => 'post', :collection => @posts %>
+	<% end %>
+	
+	<%= will_paginate %>
+</div>

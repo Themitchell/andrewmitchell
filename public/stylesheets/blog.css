@@ -1,0 +1,177 @@
+body {
+	font-family: "Trebuchet MS" , arial, verdana, sans-serif;
+	font-size: 100%;
+	padding-bottom: 30px;
+}
+* {	margin: 0px; padding: 0px; }
+a {color: #999; text-decoration: none;}
+
+img {border: 0;}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+.clearfix {
+	display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
+}
+
+/*---------- END CLEARFIX ----------------------*/
+
+/*---------- BEGIN APPLICATION CSS ----------------------*/
+
+#container {margin:15px auto 5px auto; width:960px;}
+	#header {height:100px; border-bottom:1px solid #c0c0c0;}
+		#header #logo {float:left; width:660px;}
+		#header #login_nav {float:right; width:300px; text-align:right;}
+
+
+	#nav {width:960px;}
+		#nav ul {list-style-type:none; margin:10px 10px 10px 0;}
+			#nav ul li {display:inline-block; margin-left:10px; padding-left:17px; border-left:1px solid #333;}
+			#nav ul li.first {display:inline-block; margin-left:10px; padding-left:0px; border-left:0px;}
+	
+	#error_explanation h2 {font-size:1.2em; color:red;}
+	#error_explanation {font-size:0.8em; color:red; margin-bottom:20px;}
+	#error_explanation li {margin-left:30px;}
+	
+	#flash_messages {height:15px; margin-bottom:10px;}
+		#flash_messages p#error {color: red;}
+		#flash_messages p#notice {color: green;}
+
+
+	#content {width:960px;}
+		#main {float:left; width:640px; padding:10px;}
+			.title_block { width:638px; padding-bottom: 11px; border-bottom: 1px solid #c0c0c0; margin-bottom: 20px; }
+				.title_block h1 { float: left; }
+				.title_block a { float:right; margin: 49px 10px 0 0; font-size:0.8em; }
+				.title_block .link_col { float: right; padding: 28px 8px 0 5px; text-align: right; line-height: 21px; list-style: none; }
+					.title_block .link_col a { margin-top: 3px; margin-right: 0px; display: inline; float:none; }
+					
+		#side {float:right; width:280px; padding:10px;}
+			#side div {margin-bottom:40px;}
+			#side #spacer {height:9px;}
+				#side p.section_title {border-bottom:1px solid #c0c0c0; padding-bottom:11px; margin-bottom:15px;}
+		
+			#side #categories {width:280px; text-align:right;}
+				#side #categories ul {list-style-type:none;}
+					#side #categories ul li {font-size:0.8em;}
+		
+			#side #links {width:280px; text-align:right;}
+				#side #links ul {list-style-type:none;}
+					#side #links ul li {font-size:0.8em;}
+		
+			#side #connect {width:280px; height:80px; text-align:right;}
+				#side #connect ul {list-style-type: none;}
+					#side #connect ul li {display:inline-block;}
+					
+			#side #tags {width:280px; text-align:right;}
+				#side #tags p.tags {text-align:justify-right;}
+		
+	#footer {height:100px; width:940px;}
+		#footer #links {text-align:center; width:760px; float:left;}
+		#footer #copyright {font-size:0.7em; text-align:right; width:200px; float:right;}
+		
+
+h4 {color:black; font-size:4.0em; margin-left:10px; height: 0px; width: 0px; /*overflow: hidden;*/ background-repeat: no-repeat;}
+
+h1 {color:#666; font-size:2.0em; height: 63px; width: 0px; /*overflow: hidden;*/ background-repeat: no-repeat;}
+h2 {color:#666; font-size:1.2em; margin-bottom: 5px;}
+h3 {color:#666; font-size:1.0em; margin-bottom: 5px;}
+p {color:#666; font-size:0.8em; margin-bottom: 5px;}
+a {color:#666;}
+.admin a {color:red;}
+form .row label {color:#666; font-size:0.8em; margin-bottom: 2px;}
+form .row i {color:#666; font-size:0.7em;}
+
+/*---------- END APPLICATION CSS  ----------------------*/
+
+/*---------- BEGIN GENERIC FORM CSS  ----------------------*/
+
+.generic_form {}
+.generic_form .offscreen_submit { position: absolute; left:-5000px;}
+.generic_form .row { height:25px; margin: 5px 0; clear: both;}
+
+.generic_form .row.avatar_remove .delete_link { color: #39B54A; width: 75px; margin: 10px 0 0 10px; }
+.generic_form .row.avatar_remove .avatar { display: block; float: left; height:40px; width: 40px; }
+.generic_form .row.avatar_remove label { margin-top: 10px;}
+.generic_form .row.avatar_remove { margin: 10px 0; height: 40px; }
+
+.generic_form .row.avatar_upload { margin: 5px 0; height: 40px; }
+.generic_form .row.avatar_upload label { line-height: normal; }
+.generic_form .row.avatar_upload input { margin-top: 5px; }
+
+.generic_form .row label { width: 110px; float: left; line-height: 23px; color: #939598; }
+.generic_form .row input { float: left; border: solid 1px #c0c0c0; padding: 4px 4px; width: 352px; }
+.generic_form .row input.delete_link  { width: 75px; margin-top: -2px; margin-left: 10px; }
+.generic_form .row span.file_name { display: block; color: #939598; float: left; padding-top: 4px; }
+.generic_form .row.text_area_row { height: auto; }
+.generic_form .row.text_area_row textarea { border: solid 1px #c0c0c0; padding: 4px 4px; width: 352px; height: 40px; font-family: Helvetica Neue, arial; }
+.generic_form .button_row { padding: 17px 7px 0 0; }
+.generic_form .button_row .button { float: right; margin-left: 8px; }
+.generic_form textarea { border: solid 1px #c0c0c0; font-size: width: 352px; height: 400px; padding: 4px; font-family: Helvetica; color: #000; }
+.generic_form .row .radio_button_list { width: 352px; float: left; }
+.generic_form .row .radio_button_list input { width: auto; height: auto; border: none; padding: none; margin: 4px 5px 0 0; display: block; }
+.generic_form .row .radio_button_list label { width: auto; margin-right: 20px; }
+
+.generic_form fieldset.checkbox_list { clear: both; position: relative; padding: 0; }
+.generic_form fieldset.checkbox_list h3 { position: absolute; top: 0; left: 0; color: #939598; width: 105px; }
+.generic_form fieldset .checkbox_row { margin-left: 110px; }
+.generic_form fieldset .checkbox_row input { margin-right: 4px; float:left; }
+.generic_form fieldset .checkbox_row label { color: #939598; float:left; width: 340px; padding: 0 0 10px; }
+
+.generic_form .row select { margin-top: 2px; }
+.generic_form fieldset { border: none; padding: 8px 0;}
+.generic_form h3 { color: #39B54A; font-weight: normal; }
+
+/*---------- END GENERIC FORM CSS  ----------------------*/
+
+/*---------- BEGIN DEVISE CSS ----------------------*/
+
+	/* Index */
+	#users_page h1 {background-image:url(/images/titles/users.gif);}
+	#users_page .post {margin: 0 0 20px 0;}
+	/* Show */
+	#user_page h1 {background-image:url(/images/titles/user.gif);}
+	#user_page {margin: 0 0 20px 0;}
+	#user_page .admin a {font-size:0.7em; color:red;}
+	/* New */
+	#new_user_page h1 {background-image:url(/images/titles/new_user.gif);}
+	/* Edit */
+	#edit_user_page h1 {background-image:url(/images/titles/edit_user.gif);}
+
+/*---------- END DEVISE CSS ----------------------*/
+
+/*---------- BEGIN POSTS CSS ----------------------*/
+
+	#posts_page {width:620px;}
+	/* Index */
+	#posts_page h1 {background-image:url(/images/titles/posts.gif);}
+	#posts_page .post {margin: 0 0 20px 0;}
+	#posts_page .post p.author span {font-weight: bold;}
+	#posts_page .post .body {margin-top:5px;}
+	/* Show */
+	#post_page h1 {background-image:url(/images/titles/post.gif);}
+	#post_page {margin: 0 0 20px 0;}
+	#post_page p.author span {font-weight: bold;}
+	#post_page .body {margin-top:5px;}
+	#post_page .admin a {font-size:0.7em; color:red;}
+	/* New */
+	#new_post_page h1 {background-image:url(/images/titles/new_post.gif);}
+	/* Edit */
+	#edit_post_page h1 {background-image:url(/images/titles/edit_post.gif);}
+
+/*---------- END POSTS CSS ----------------------*/

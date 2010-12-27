@@ -1,0 +1,10 @@
+<div id="new_picture admin">
+	<div class="title_block clearfix">
+		<h1>New Picture</h1>
+		<%= link_to 'Back to Pictures', admin_pictures_path, :class => 'back_link' %>
+	</div>
+
+	<%= render :partial => 'shared/flash_messages' %>
+
+	<%= render :partial => 'form' %>
+</div>

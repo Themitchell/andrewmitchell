@@ -1,0 +1,24 @@
+<div id="user admin">
+	<div class="title_block clearfix">
+		<h1>User</h1>
+		<%= link_to 'Back to Users', admin_users_path, :class => 'back_link' %>
+		<%= link_to 'Delete User', admin_user_path(@user), :method => :delete, :class => 'delete_link' %>
+	</div>
+
+	<%= render :partial => 'shared/flash_messages' %>
+	
+	<div class="row">
+		Username:<br />
+		<%= @user.username %>
+	</div>
+	
+	<div class="row">
+		Email:<br />
+		<%= @user.email %>
+	</div>
+	
+	<div class="row">
+		Role:<br />
+		<%= @user.role %>
+	</div>
+</div>

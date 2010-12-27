@@ -1,0 +1,17 @@
+<div id="user_index admin">
+	<div class="title_block clearfix">
+		<h1>Users Index</h1>
+		<%#= link_to 'New User', new_admin_user_path, :class => 'new_link' %>
+	</div>
+	
+	<table>
+		<tr>
+			<th></th>
+		</tr>
+		<% unless @users.empty? %>
+			<%= render :partial => 'user', :collection => @users %>
+		<% else %>
+			Currently there are no users
+		<% end %>
+	</table>
+</div>

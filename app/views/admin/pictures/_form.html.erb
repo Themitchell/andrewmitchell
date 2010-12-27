@@ -1,0 +1,39 @@
+<%= form_for [:admin, @picture], :html => { :multipart => true, :class => "generic_form" } do |form| %>
+
+	<div class="row">
+		<%= form.label :title, "Title:" %>
+		<%= form.text_field :title %>
+	</div>
+	
+	<% if @picture.has_picture? %>
+  	<div class="row picture_row">
+      <%= hidden_field_tag :has_picture %>
+      <%= form.label :picture_file_name, 'Picture:' %>
+      <div class="picture_display"><%= image_tag @picture.picture.url(:picture), :alt => @picture.title %></div>
+    </div>
+  <% else %>
+    <div class="row picture_upload">
+      <%= form.label :picture, 'Picture:' %>
+      <%= form.file_field :picture %>
+    </div>
+  <% end %>
+	
+	<div class="row">
+		<%= form.label :author_id, "Author:" %>
+		<%= form.select :author_id, @users.collect { |u| [u.username, u.id] } %>
+	</div>
+	
+	<div class="row">
+		<%= form.label :published_on, "Published On:" %>
+		<%= form.text_field :published_on %>
+	</div>
+	
+	<div class="row">
+		<%= form.label :tag_list, "Tag List:" %>
+		<%= form.text_field :tag_list %>
+	</div>
+	
+	<div class="row">
+		<%= submit_tag "Save" %>
+	</div>
+<% end %>

@@ -1,0 +1,31 @@
+<%= form_for [:admin, @post], :html => { :multipart => true, :class => "generic_form" } do |form| %>
+
+	<div class="row">
+		<%= form.label :title, "Title:" %>
+		<%= form.text_field :title %>
+	</div>
+	
+	<div class="row">
+		<%= form.label :body, "Body:" %>
+		<%= form.text_area :body %>
+	</div>
+	
+	<div class="row">
+		<%= form.label :author_id, "Author:" %>
+		<%= form.select :author_id, @users.collect { |u| [u.username, u.id] } %>
+	</div>
+	
+	<div class="row">
+		<%= form.label :published_on, "Published On:" %>
+		<%= form.text_field :published_on %>
+	</div>
+	
+	<div class="row">
+		<%= form.label :tag_list, "Tag List:" %>
+		<%= form.text_field :tag_list %>
+	</div>
+	
+	<div class="row">
+		<%= submit_tag "Save" %>
+	</div>
+<% end %>

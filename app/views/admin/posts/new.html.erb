@@ -1,0 +1,10 @@
+<div id="new_post admin">
+	<div class="title_block clearfix">
+		<h1>New Post</h1>
+		<%= link_to 'Back to Posts', admin_posts_path, :class => 'back_link' %>
+	</div>
+
+	<%= render :partial => 'shared/flash_messages' %>
+
+	<%= render :partial => 'form' %>
+</div>

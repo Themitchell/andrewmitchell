@@ -1,0 +1,6 @@
+<div class="post">
+	<h2><%= link_to post.title, post_path(post) %></h2>
+	<p class="author">Posted by <span><%= post.author.username %></span> on <span><%= published_on_text(post) %></span></p>
+	<p class="body"><%= post.body %></p>
+</div>
+	

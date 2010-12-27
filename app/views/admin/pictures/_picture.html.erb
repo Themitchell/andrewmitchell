@@ -1,0 +1,7 @@
+<tr>
+	<td><%= image_tag picture.picture.url(:thumbnail), :alt => picture.title %></td>
+	<td><%= picture.title %></td>
+	<td><%= link_to "Show", admin_picture_path(picture) %>
+	<td><%= link_to "Edit", edit_admin_picture_path(picture) %></td>
+	<td><%= link_to "Delete", admin_picture_path(picture), :method => :delete %></td>
+</tr>

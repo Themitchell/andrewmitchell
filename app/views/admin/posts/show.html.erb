@@ -1,0 +1,23 @@
+<div id="post admin">
+	<div class="title_block clearfix">
+		<h1><%= @post.title %></h1>
+		<%= link_to 'Back to Posts', admin_posts_path, :class => 'back_link' %>
+		<%= link_to 'Edit Post', edit_admin_post_path, :class => 'edit_link' %>
+		<%= link_to 'Delete Post', admin_post_path(@post), :method => :delete, :class => 'delete_link' %>
+	</div>
+
+	<%= render :partial => 'shared/flash_messages' %>
+	
+	<p class="author">Posted by <span><%= @post.author.username %></span> on <span><%= published_on_text(@post) %></span></p>
+	<p class="body"><%= @post.body %></p>
+	<% unless @post.tags.empty? %>
+		<p class="tags">
+			<b>Tagged with:</b>
+			<% if @post.tags %>
+				<% @post.tags.each do |t| %>
+					<%= t.name %>
+				<% end %>
+			<% end%>
+		</p>
+	<% end %>
+</div>

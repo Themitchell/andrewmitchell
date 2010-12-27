@@ -1,0 +1,20 @@
+defaults : &defaults
+  adapter: mysql2
+  encoding: utf8
+  username: root
+  password:
+
+development:
+  <<: *defaults
+  database: andrewmitchell_development
+
+test: &TEST
+  <<: *defaults
+  database: andrewmitchell_test
+
+cucumber:
+  <<: *TEST
+
+production:
+  <<: *defaults
+  database: andrewmitchell_production

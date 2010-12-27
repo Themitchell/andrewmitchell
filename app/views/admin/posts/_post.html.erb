@@ -1,0 +1,8 @@
+<tr>
+	<td><%= post.title %></td>
+	<td><%= post.author.username %></td>
+	<td><%= published_on_text(post) %></td>
+	<td><%= link_to "Show", admin_post_path(post) %>
+	<td><%= link_to "Edit", edit_admin_post_path(post) %></td>
+	<td><%= link_to "Delete", admin_post_path(post), :method => :delete %></td>
+</tr>

@@ -1,0 +1,18 @@
+<div class="picture_index admin">
+	<div class="title_block clearfix">
+		<h1>Pictures Index</h1>
+		<%= link_to 'New Picture', new_admin_picture_path, :class => 'new_link' %>
+	</div>
+	
+	<table>
+		<tr>
+			<th></th>
+		</tr>
+		
+		<% unless @pictures.empty? %>
+			<%= render :partial => 'picture', :collection => @pictures %>	
+		<% else %>
+			Currently there are no pictures
+		<% end %>
+	</table>
+</div>
