@@ -1,5 +1,5 @@
 <div class="picture">
-	<h2><%= link_to picture.title, picture_path(picture) %></h2>
+	<h3><%= link_to picture.title, picture_path(picture) %></h3>
 	<div class="mini_picture_display">
 		<%= image_tag picture.picture.url(:thumbnail), :alt => picture.title %>
 	</div>

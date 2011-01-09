@@ -1,10 +1,13 @@
 body {
-	font-family: "Trebuchet MS" , arial, verdana, sans-serif;
-	font-size: 100%;
+	font-family: "helvetica", arial, verdana, sans-serif;
+	font-size: 106%;
 	padding-bottom: 30px;
+	background-color: #1E2B38;
+	background-image: url("/images/assets/gradient_top_bg.png");
+	background-repeat: repeat-x;
 }
 * {	margin: 0px; padding: 0px; }
-a {color: #999; text-decoration: none;}
+a { text-decoration: none;}
 
 img {border: 0;}
 
@@ -33,66 +36,58 @@ html[xmlns] .clearfix {
 
 /*---------- BEGIN APPLICATION CSS ----------------------*/
 
-#container {margin:15px auto 5px auto; width:960px;}
-	#header {height:100px; border-bottom:1px solid #c0c0c0;}
-		#header #logo {float:left; width:660px;}
-		#header #login_nav {float:right; width:300px; text-align:right;}
+#container {margin:auto; width:940px; background-image:url("/images/assets/container_bg.png"); background-repeat:no-repeat;}
+	#header {padding-top:54px; height:248px; width:940px;}
+		h1 {float:left; text-indent:999999px; width:459px; height:139px; margin:37px 0 0 60px; background-image:url("/images/assets/logo.png"); background-repeat:no-repeat; overflow: hidden;}
+		#header #login_nav {float:right; margin-right:60px; text-align:right;}
 
 
-	#nav {width:960px;}
-		#nav ul {list-style-type:none; margin:10px 10px 10px 0;}
-			#nav ul li {display:inline-block; margin-left:10px; padding-left:17px; border-left:1px solid #333;}
-			#nav ul li.first {display:inline-block; margin-left:10px; padding-left:0px; border-left:0px;}
+	#nav {width:940px; height:29px; border-bottom:1px solid #638EB8;}
+		#nav ul {list-style-type:none; margin-left: 16px;}
+			#nav ul li {display:inline-block; margin-left:44px; font-weight:lighter;}
+			 #nav ul li a {color: #547A93;}
 	
 	#error_explanation h2 {font-size:1.2em; color:red;}
 	#error_explanation {font-size:0.8em; color:red; margin-bottom:20px;}
 	#error_explanation li {margin-left:30px;}
 	
-	#flash_messages {height:15px; margin-bottom:10px;}
+	#flash_messages {height:25px; margin-bottom:10px;}
 		#flash_messages p#error {color: red;}
 		#flash_messages p#notice {color: green;}
 
 
-	#content {width:960px;}
-		#main {float:left; width:640px; padding:10px;}
-			.title_block { width:638px; padding-bottom: 11px; border-bottom: 1px solid #c0c0c0; margin-bottom: 20px; }
-				.title_block h1 { float: left; }
-				.title_block a { float:right; margin: 49px 10px 0 0; font-size:0.8em; }
+	#content {width:940px;}
+		#main {float:left; width:580px; margin:30px 10px 0 60px;}
+			.title_block { width:638px; margin-bottom: 20px; }
+				.title_block h2 { float: left;}
 				.title_block .link_col { float: right; padding: 28px 8px 0 5px; text-align: right; line-height: 21px; list-style: none; }
 					.title_block .link_col a { margin-top: 3px; margin-right: 0px; display: inline; float:none; }
 					
-		#side {float:right; width:280px; padding:10px;}
-			#side div {margin-bottom:40px;}
-			#side #spacer {height:9px;}
-				#side p.section_title {border-bottom:1px solid #c0c0c0; padding-bottom:11px; margin-bottom:15px;}
+		#side {float:right; width:220px; margin:30px 60px 0 10px;}
+			#side div {margin-bottom:86px;}
+			#side #spacer {height:28px;}
+				#side .side_section_title { margin-bottom:12px;}
+				#side ul {list-style-type:none;}
+					#side ul li {font-size:0.8em; line-height:1.5em; color: #547A93; font-weight:lighter;}
 		
-			#side #categories {width:280px; text-align:right;}
-				#side #categories ul {list-style-type:none;}
-					#side #categories ul li {font-size:0.8em;}
-		
-			#side #links {width:280px; text-align:right;}
-				#side #links ul {list-style-type:none;}
-					#side #links ul li {font-size:0.8em;}
-		
-			#side #connect {width:280px; height:80px; text-align:right;}
-				#side #connect ul {list-style-type: none;}
+			#side #categories {width:220px; text-align:right;}
+			#side #links {width:220px; text-align:right;}		
+			#side #connect {width:220px; height:80px; text-align:right;}
 					#side #connect ul li {display:inline-block;}
-					
-			#side #tags {width:280px; text-align:right;}
-				#side #tags p.tags {text-align:justify-right;}
+			#side #tags {width:220px; text-align:right;}
+				#side #tags p.tags {font-size:0.8em; line-height:1.5em; color: #547A93; text-align:justify-right;}
 		
-	#footer {height:100px; width:940px;}
-		#footer #links {text-align:center; width:760px; float:left;}
-		#footer #copyright {font-size:0.7em; text-align:right; width:200px; float:right;}
+	#footer {border-top:0.5px solid #638EB8; width:940px; clear: both; height:220px;}
+		#footer #links {text-align:center; float:left; margin: 20px 0 0 60px;}
+		#footer #copyright {color:#9BA9B8; font-size:0.8em; text-align:right; width:250px; float:right; margin:20px 60px 0 0; line-height:1.2em;}
 		
 
-h4 {color:black; font-size:4.0em; margin-left:10px; height: 0px; width: 0px; /*overflow: hidden;*/ background-repeat: no-repeat;}
 
-h1 {color:#666; font-size:2.0em; height: 63px; width: 0px; /*overflow: hidden;*/ background-repeat: no-repeat;}
-h2 {color:#666; font-size:1.2em; margin-bottom: 5px;}
-h3 {color:#666; font-size:1.0em; margin-bottom: 5px;}
-p {color:#666; font-size:0.8em; margin-bottom: 5px;}
-a {color:#666;}
+h2 {color:#6F7984; font-size:3em; font-weight: lighter; height: 63px; width: 0px; /*overflow: hidden;*/ background-repeat: no-repeat;}
+h3 {color:#6F7984; font-size:1.6em; font-weight: lighter; margin-bottom: 5px;}
+h4 {color:#6F7984; font-size:1.0em; font-weight: lighter; margin-bottom: 5px;}
+p {color:#6F7984; font-size:0.8em; font-weight: lighter; margin-bottom: 5px;}
+a {color:#6F7984;}
 .admin a {color:red;}
 form .row label {color:#666; font-size:0.8em; margin-bottom: 2px;}
 form .row i {color:#666; font-size:0.7em;}
