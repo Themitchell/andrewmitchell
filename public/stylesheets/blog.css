@@ -1,4 +1,5 @@
 body {
+  color: #6F7984;
 	font-family: "helvetica", arial, verdana, sans-serif;
 	font-size: 106%;
 	padding-bottom: 30px;
@@ -83,7 +84,7 @@ html[xmlns] .clearfix {
 		
 
 
-h2 {color:#6F7984; font-size:3em; font-weight: lighter; height: 63px; width: 0px; /*overflow: hidden;*/ background-repeat: no-repeat;}
+h2 {color:#6F7984; font-size:3em; font-weight: lighter; height: 63px; /*overflow: hidden;*/ background-repeat: no-repeat;}
 h3 {color:#6F7984; font-size:1.6em; font-weight: lighter; margin-bottom: 5px;}
 h4 {color:#6F7984; font-size:1.0em; font-weight: lighter; margin-bottom: 5px;}
 p {color:#6F7984; font-size:0.8em; font-weight: lighter; margin-bottom: 5px;}
@@ -98,7 +99,7 @@ form .row i {color:#666; font-size:0.7em;}
 
 .generic_form {}
 .generic_form .offscreen_submit { position: absolute; left:-5000px;}
-.generic_form .row { height:25px; margin: 5px 0; clear: both;}
+.generic_form .row { height:30px; margin: 5px 0; clear: both;}
 
 .generic_form .row.avatar_remove .delete_link { color: #39B54A; width: 75px; margin: 10px 0 0 10px; }
 .generic_form .row.avatar_remove .avatar { display: block; float: left; height:40px; width: 40px; }
@@ -113,8 +114,8 @@ form .row i {color:#666; font-size:0.7em;}
 .generic_form .row input { float: left; border: solid 1px #c0c0c0; padding: 4px 4px; width: 352px; }
 .generic_form .row input.delete_link  { width: 75px; margin-top: -2px; margin-left: 10px; }
 .generic_form .row span.file_name { display: block; color: #939598; float: left; padding-top: 4px; }
-.generic_form .row.text_area_row { height: auto; }
-.generic_form .row.text_area_row textarea { border: solid 1px #c0c0c0; padding: 4px 4px; width: 352px; height: 40px; font-family: Helvetica Neue, arial; }
+.generic_form .textarea_row { height: auto; }
+.generic_form .textarea_row textarea { border: solid 1px #c0c0c0; padding: 4px 4px; width: 352px; height: 400px; font-family: Helvetica Neue, arial; }
 .generic_form .button_row { padding: 17px 7px 0 0; }
 .generic_form .button_row .button { float: right; margin-left: 8px; }
 .generic_form textarea { border: solid 1px #c0c0c0; font-size: width: 352px; height: 400px; padding: 4px; font-family: Helvetica; color: #000; }
@@ -122,11 +123,8 @@ form .row i {color:#666; font-size:0.7em;}
 .generic_form .row .radio_button_list input { width: auto; height: auto; border: none; padding: none; margin: 4px 5px 0 0; display: block; }
 .generic_form .row .radio_button_list label { width: auto; margin-right: 20px; }
 
-.generic_form fieldset.checkbox_list { clear: both; position: relative; padding: 0; }
-.generic_form fieldset.checkbox_list h3 { position: absolute; top: 0; left: 0; color: #939598; width: 105px; }
-.generic_form fieldset .checkbox_row { margin-left: 110px; }
-.generic_form fieldset .checkbox_row input { margin-right: 4px; float:left; }
-.generic_form fieldset .checkbox_row label { color: #939598; float:left; width: 340px; padding: 0 0 10px; }
+  
+.generic_form .checkbox_row input { margin-right: 4px; float:left; width:10px;}
 
 .generic_form .row select { margin-top: 2px; }
 .generic_form fieldset { border: none; padding: 8px 0;}

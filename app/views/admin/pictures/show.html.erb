@@ -1,6 +1,6 @@
 <div id="picture admin">
 	<div class="title_block clearfix">
-		<h1><%= @picture.title %></h1>
+		<h2><%= @picture.title %></h2>
 		<%= link_to 'Back to Pictures', admin_pictures_path, :class => 'back_link' %>
 		<%= link_to 'Edit Pictures', edit_admin_picture_path, :class => 'edit_link' %>
 		<%= link_to 'Delete Pictures', admin_picture_path(@picture), :method => :delete, :class => 'delete_link' %>
