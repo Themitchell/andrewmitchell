@@ -68,6 +68,13 @@ describe User do
       u.errors['name'].should_not be_nil
     end
     
+    it "should be invalid with a name that already exists" do
+      Factory.create(:user, :username => "a photoalbum")
+      u = Factory.build(:user, :username => "a photoalbum")
+      u.should_not be_valid
+      u.errors[:username].should_not be_empty
+    end
+    
     it 'should not be valid without a password' do
       u = Factory.build(:user, :password => nil)
       u.should_not be_valid

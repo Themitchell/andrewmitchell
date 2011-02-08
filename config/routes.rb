@@ -18,10 +18,14 @@ Andrewmitchell::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
     resources :comments
+    
     resources :posts, :only => [:show, :index] do
       resources :comments, :except => [:delete]
     end
     match 'posts/tagged/:tag' => 'posts#tagged'
+    
+    resources :photoalbums
+    
     resources :pictures, :only => [:show, :index] do
       resources :comments, :except => [:delete]
     end
@@ -58,6 +62,7 @@ Andrewmitchell::Application.routes.draw do
       root :to => 'admin#index'
       resources :users
       resources :posts
+      resources :photoalbums
       resources :pictures
     end
 

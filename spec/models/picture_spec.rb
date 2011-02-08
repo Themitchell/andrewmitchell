@@ -31,6 +31,13 @@ describe Picture do
       p.errors[:title].should_not be_empty
     end
     
+    it "should be invalid with a title that already exists" do
+      Factory.create(:picture, :title => "a photoalbum")
+      p = Factory.build(:picture, :title => "a photoalbum")
+      p.should_not be_valid
+      p.errors[:title].should_not be_empty
+    end
+    
     it 'should be invalid without a picture' do
       p = Factory.build(:picture)
       p.picture = nil
@@ -67,6 +74,12 @@ describe Picture do
       p.should be_valid
       p.errors[:tag_list].should be_empty
     end
+    
+    it "should be invalid without a photoalbum" do
+      p = Factory.build(:picture, :photoalbum => nil)
+      p.should_not be_valid
+      p.errors[:photoalbum].should_not be_empty
+    end
   end
   
   describe 'associations' do
@@ -74,6 +87,12 @@ describe Picture do
       user = Factory.create(:user)
       picture = Factory.create(:picture, :author => user)
       picture.author.should == user
+    end
+    
+    it "should belong to a photoalbum" do
+      pa = Factory.create(:photoalbum)
+      picture = Factory.create(:picture, :photoalbum => pa)
+      picture.photoalbum.should == pa
     end
   end
 end

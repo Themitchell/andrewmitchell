@@ -12,11 +12,19 @@ Factory.define :post do |post|
   post.association :author, :factory => :user
 end
 
+Factory.define :photoalbum do |photoalbum|
+  photoalbum.sequence(:name) {|n| "test_photoalbum_#{n}" }
+  photoalbum.description "test_photoalbum description"
+  photoalbum.association :author, :factory => :user
+  photoalbum.sequence(:published_on) {|n| n.minutes.from_now}
+end
+
 Factory.define :picture do |picture|
   picture.sequence(:title) {|n| "test_picture_#{n}" }
   picture.picture { File.open("#{Rails.root}/features/support/images/picture.jpg") }
   picture.sequence(:published_on) {|n| n.minutes.from_now}
   picture.association :author, :factory => :user
+  picture.association :photoalbum, :factory => :photoalbum
 end
 
 Factory.define :comment do |comment|

@@ -28,6 +28,13 @@ describe Post do
       p.errors[:title].should_not be_empty
     end
     
+    it "should be invalid with a title that already exists" do
+      Factory.create(:post, :title => "a photoalbum")
+      p = Factory.build(:post, :title => "a photoalbum")
+      p.should_not be_valid
+      p.errors[:title].should_not be_empty
+    end
+    
     it 'should be invalid without a body' do
       p = Factory.build(:post, :body => nil)
       p.should_not be_valid

@@ -16,7 +16,8 @@ class Post < ActiveRecord::Base
   has_many :comments, :as => :commentable, :order => 'created_at DESC', :dependent => :destroy
   acts_as_taggable_on :tags
   
-  validates :title, :presence => true
+  # Validations
+  validates :title, :presence => true, :uniqueness => true
   validates :body, :presence => true
   validates :author, :presence => true
   validates :published_on, :presence => true

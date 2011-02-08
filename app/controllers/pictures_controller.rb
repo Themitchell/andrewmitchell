@@ -7,7 +7,7 @@ class PicturesController < ApplicationController
   end
   
   def show
-    @picture = Picture.find_by_id(params[:id])    
+    @picture = Picture.find_by_id(params[:id])
   end
   
   def tagged

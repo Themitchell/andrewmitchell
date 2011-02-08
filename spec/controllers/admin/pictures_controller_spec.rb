@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Admin::PicturesController do
   before :each do
     @admin = Factory(:user, :role => "admin")
+    @photoalbum = Factory(:photoalbum)
     @picture1 = Factory(:picture, :title => "Picture 1", :author => @admin)
     @picture2 = Factory(:picture, :title => "Picture 2", :author => @admin)
   end
@@ -93,7 +94,7 @@ describe Admin::PicturesController do
       end
       
       it 'should allow creation of a valid picture' do
-        params = {:picture => {:title => "A picture", :picture => File.open("#{Rails.root}/features/support/images/picture.jpg"), :published_on => "01-01-2010", :author => @admin}}
+        params = {:picture => {:title => "A picture", :picture => File.open("#{Rails.root}/features/support/images/picture.jpg"), :published_on => "01-01-2010", :author => @admin, :photoalbum => @photoalbum}}
         post :create, params
         picture = Picture.find_by_title("A picture")
         picture.should_not be_nil

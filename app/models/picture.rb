@@ -19,6 +19,8 @@ class Picture < ActiveRecord::Base
 
   attr_protected :picture_file_name, :picture_content_type, :picture_file_size
   belongs_to :author, :class_name => "User"
+  belongs_to :photoalbum
+  
   has_many :comments, :as => :commentable, :order => 'created_at DESC', :dependent => :destroy
   acts_as_taggable_on :tags
   
@@ -36,7 +38,8 @@ class Picture < ActiveRecord::Base
   validates_attachment_presence :picture, :message => 'Please upload an image.'                                       
 
   # Validations
-  validates :title, :presence => true
+  validates :title, :presence => true, :uniqueness => true
   validates :author, :presence => true
+  validates :photoalbum, :presence => true
   validates :published_on, :presence => true
 end

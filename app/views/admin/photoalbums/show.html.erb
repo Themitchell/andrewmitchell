@@ -1,0 +1,26 @@
+<div id="picture_page">
+	<div class="title_block clearfix">
+		<h2>Picture - <%= @picture.title %></h2>
+	</div>
+	
+	<%= render :partial => 'shared/flash_messages' %>
+	
+	
+	<div class="full_picture_display"><%= image_tag @picture.picture.url(:picture), :alt => @picture.title %></div>
+	<p class="author">Posted by <span><%= @picture.author.username %></span> on <span><%= published_on_text(@picture) %></span></p>
+	<p class="description"><%= @picture.description %></p>
+	<% unless @picture.tags.empty? %>
+		<p class="tags">
+			<span class="tag_label">Tagged with:</span> 
+			<% @picture.tags.each do |t| %>
+				<%= link_to t.name, {:tag => t.name, :action => :tagged, :controller => :pictures} %>
+			<% end %>
+		</p>
+	<% end %>
+	
+	<div class="comments">
+		<%= link_to "Add Comment", new_picture_comment_path(@picture) unless current_user.nil? %>
+
+		<%= render :partial => 'shared/comment', :collection => @picture.comments %>
+	</div>
+</div>

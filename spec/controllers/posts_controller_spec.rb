@@ -4,8 +4,8 @@ describe PostsController do
   before :each do
     @post1 = Factory(:post, :title => "Post 1")
     @post2 = Factory(:post, :title => "Post 2")
-    @comment1 = Factory(:comment, :commentable => @post1, :body => "Comment 1")
-    @comment2 = Factory(:comment, :commentable => @post1, :body => "Comment 2")
+    @comment1 = Factory(:comment, :commentable => @post1)
+    @comment2 = Factory(:comment, :commentable => @post1)
   end
   
   describe "GET 'index'" do 

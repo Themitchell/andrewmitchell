@@ -10,14 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110110211505) do
-
-  create_table "albums", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110208161029) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -26,6 +19,15 @@ ActiveRecord::Schema.define(:version => 20110110211505) do
     t.datetime "updated_at"
     t.integer  "commentable_id"
     t.string   "commentable_type"
+  end
+
+  create_table "photoalbums", :force => true do |t|
+    t.integer  "author"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "published_on"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "pictures", :force => true do |t|
@@ -38,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20110110211505) do
     t.integer  "picture_file_size"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "photoalbum_id"
   end
 
   create_table "posts", :force => true do |t|
@@ -93,25 +96,5 @@ ActiveRecord::Schema.define(:version => 20110110211505) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-
-  create_table "videos", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.text     "embed"
-    t.string   "video_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "vtokens", :force => true do |t|
-    t.text     "token"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "perms"
-    t.string   "nsid"
-    t.string   "fullname"
-    t.string   "username"
-    t.string   "user_id"
-  end
 
 end
