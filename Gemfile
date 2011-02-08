@@ -6,7 +6,7 @@ gem 'mysql2'
 gem 'devise', '1.1.2'
 gem "will_paginate", "~> 3.0.pre2"
 gem 'acts-as-taggable-on'
-gem 'paperclip'
+gem 'paperclip', "~> 2.3.3"
 gem 'acts-as-taggable-on'
 
 
@@ -22,6 +22,7 @@ group :development, :test do # avoid these gems in production
   gem 'factory_girl_rails'
   gem 'spork'
   gem 'launchy'
+  # Heroku has a wierd issue if ruby-debug19 is included when deplyoing!
   # gem 'ruby-debug19'
   gem 'annotate'
 end

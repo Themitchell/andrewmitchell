@@ -159,7 +159,7 @@ DEPENDENCIES
   factory_girl_rails
   launchy
   mysql2
-  paperclip
+  paperclip (~> 2.3.3)
   pickle
   rails (= 3.0.3)
   rspec (>= 2.0.0.beta.12)
