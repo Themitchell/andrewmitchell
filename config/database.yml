@@ -11,8 +11,7 @@ development:
 test: &TEST
   <<: *defaults
   database: andrewmitchell_test
-cucumber:
-  <<: *TEST
+  min_messages: WARNING
 staging:
   <<: *defaults
   database: andrewmitchell_staging
