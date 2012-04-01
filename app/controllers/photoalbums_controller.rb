@@ -8,6 +8,6 @@ class PhotoalbumsController < ApplicationController
   
   def show
     @photoalbum = Photoalbum.find_by_permalink(params[:id])
-    @photoalbum.pictures.order('published_on DESC').paginate(:page => params[:page], :per_page => ALBUMS_PER_PAGE)
+    @pictures = @photoalbum.pictures.order('published_on DESC').paginate(:page => params[:page], :per_page => ALBUMS_PER_PAGE)
   end
 end
