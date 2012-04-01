@@ -13,3 +13,15 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore RVM
+.rvmrc
+
+.sass-cache
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/**/*
+app/assets/images/test_uploaded
+app/assets/images/dev_uploaded
+config/private_keys
