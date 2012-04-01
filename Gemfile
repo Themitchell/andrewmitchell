@@ -32,7 +32,7 @@ group :development, :test do
   gem 'pickle'
   gem 'rspec-rails'
   gem "shoulda-matchers"
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', "~> 3.0"
   gem 'spork'# , '0.9.0.rc9'
   gem 'launchy'
   gem 'ruby-debug19'
