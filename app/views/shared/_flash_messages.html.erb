@@ -1,0 +1,9 @@
+<% if flash[:errors] %>
+  <a id="error" name="error" href="#error" class="flash_message">
+    <%= flash[:errors] %>
+  </a>
+<% elsif flash[:notice] %>
+  <a id="notice" name="notice" href="#notice" class="flash_message">
+    <%= flash[:notice] %>
+  </a>
+<% end %>

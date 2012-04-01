@@ -1,0 +1,16 @@
+<li class="comment">
+	<div class='avatar'>
+    <% if comment.author.has_avatar? %>
+      <%= image_tag comment.author.avatar.url(:avatar), :alt => comment.author.username %>
+    <% else %>
+      <%= image_tag 'blank_avatar.gif', :alt => comment.author.username %>
+    <% end %>
+  </div>
+	<p>Posted by: <%= comment.author.username %> on <%= comment_published_on_text(comment) %></p>
+	<p><%= comment.body %></p>
+	<% if current_user && current_user.is_admin? %>
+		<p>
+			<%= link_to "Delete", comment_path(comment.id), :method => :delete %>
+		</p>
+	<% end %>
+</li>

@@ -1,0 +1,13 @@
+<p>You have currently linked your account to the following services</p>
+<table id="authentications">
+  <tr>
+    <th>Logo</th>
+    <th>Name</th>
+    <th>User Identifier</th>
+  </tr>
+  <tbody>
+    <%= render :partial => "authentication", :collection => @authentications %>
+  </tbody>
+</table>
+
+<%= render :partial => 'shared/available_oauth_providers', :locals => { :verb => "link your account" } %>

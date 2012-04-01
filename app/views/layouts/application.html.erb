@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AndrewMitchell</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  <title>Blog</title>
+  <%= stylesheet_link_tag :application %>
+  <%= javascript_include_tag :application %>
+  <%= csrf_meta_tag %>
 </head>
 <body>
+  <div id="container">  
+    <%= render :partial => 'shared/flash_messages' %>
+      
+    <div id="header">
+      <h1>Andrew Mitchell :: Online Portfolio</h1>
+      <%= render :partial => 'shared/login_nav' %>
+    </div>
 
-<%= yield %>
+    <%= render :partial => 'shared/nav' %>
 
+    <div id="content">      
+      <div id="main">
+        <%= yield %>
+      </div>
+      <%= render :partial => 'shared/side' %>
+    </div>
+
+    <%= render :partial => 'shared/footer' %>
+  </div>
 </body>
 </html>

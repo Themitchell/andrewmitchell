@@ -1,0 +1,10 @@
+<li>
+  <h4 class="qualification">
+    <%= educational_qualification.name %>
+    <% if educational_qualification.grade.present? %>
+      - <span class="grade"><%= educational_qualification.grade %></span>
+    <% end %>
+  </h4>
+  <h5 class="institution"><%= educational_qualification.institution %></h5>
+  <p class="time_period">From <span class="date_from"><%= educational_qualification.date_from.strftime("%B %Y") %></span> to <span class="date_to"><%= educational_qualification.date_to.present? ? educational_qualification.date_to.strftime("%B %Y") : 'ongoing' %></span></p>
+</li>

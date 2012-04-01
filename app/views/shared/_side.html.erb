@@ -1,0 +1,38 @@
+<div id="side">
+	<div id="spacer"></div>
+	
+	<aside id="categories">
+		<h3 class="side_section_title">Categories</h3>
+		<ul>
+		  <% if @categories.any? %>
+  		  <% @categories.each do |cat| %>
+  			  <li class="<%= cat.permalink %>"><%= link_to cat.name.titleize, posts_category_path(cat) %></li>
+  			<% end %>
+  		<% end %>
+		</ul>
+	</aside>
+	
+  <!-- <aside id="tags">
+    <h3 class="side_section_title">Tags</h3>
+    <p class="tags">All Your List Of Tags Can Go Here To Add Keywords To The Page For SEO Stuff See Look Isnt It Nice</p>
+  </aside>
+  
+  <aside id="links">
+    <h3 class="side_section_title">Useful Links</h3>
+    <ul>
+      <li>Link 1</li>
+      <li>Link 2</li>
+      <li>Link 3</li>
+      <li>Link 4</li>
+    </ul>
+  </aside> -->
+	
+	<aside id="connect">
+		<h3 class="side_section_title">Connect with me!</h3>
+		<ul>
+			<li><%= link_to image_tag('connect/twitter.gif'), "http://twitter.com/#!/themitchelluk" %></li>
+			<li><%= link_to image_tag('connect/lastfm.gif'), "http://www.last.fm/user/ratherdrunk" %></li>
+			<li><%= link_to image_tag('connect/linkedin.gif'), "http://uk.linkedin.com/pub/andrew-mitchell/30/86a/b31" %></li>
+		</ul>
+	</aside>		
+</div>

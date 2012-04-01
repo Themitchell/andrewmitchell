@@ -1,0 +1,6 @@
+<tr>
+  <td><%= image_tag "oauth_providers/#{authentication.provider}_32.png", :size => "32x32" %></td>
+  <td><%= authentication.provider.titleize %></td>
+  <td><%= authentication.uid %></td>
+  <td><%= link_to "Delete", authentication_path(authentication.provider), :confirm => 'Are you sure you want to remove this authentication option?', :method => :delete, :class => "remove" %></td>
+</tr>

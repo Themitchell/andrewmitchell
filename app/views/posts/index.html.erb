@@ -1,0 +1,13 @@
+<div id="posts_page">
+	<h2>Blog</h2>
+
+	<% if @posts.empty? %>
+		<p>There are currently no posts.</p>
+	<% else %>
+	  <ol class="list">
+		  <%= render :partial => 'post_mini', :collection => @posts %>
+		</ol>
+	<% end %>
+	
+	<%= will_paginate %>
+</div>

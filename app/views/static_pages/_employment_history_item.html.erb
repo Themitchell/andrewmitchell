@@ -1,0 +1,11 @@
+<li>
+  <h4 class="company_name">
+    <%= employment_history_item.company_name %>
+    <% if employment_history_item.location.present? %>
+      <span class="company_location"><%= employment_history_item.location %></span>
+    <% end %>
+  </h4>
+  <h5 class="role"><%= employment_history_item.company_role %></h5>
+  <p class="time_period">From <span class="date_from"><%= employment_history_item.date_from.strftime("%B %Y") %></span> to <span class="date_to"><%= employment_history_item.date_to.present? ? employment_history_item.date_to.strftime("%B %Y") : 'ongoing' %></span></p>
+  <div class="role_description"><%= employment_history_item.role_description %></div>
+</li>

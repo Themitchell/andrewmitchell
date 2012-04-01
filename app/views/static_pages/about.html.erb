@@ -1,0 +1,27 @@
+<div id="about_page">
+	<h2>About</h2>
+
+  <% if @personal_statement && @personal_statement.body.present? %>
+    <section id="personal_statement">
+    	<%= @personal_statement.body.html_safe %>
+    </section>
+  <% end %>
+  
+  <% if @employment_history.any? %>
+    <section id="employment_history">
+      <h3>Employment History</h3>
+      <ol id="employment_history">
+        <%= render :partial => "employment_history_item", :collection => @employment_history %>
+      </ol>
+    </section>
+  <% end %>
+  
+  <% if @educational_qualifications.any? %>
+    <section id="educational_qualifications">
+      <h3>Educational Qualifications</h3>
+      <ol id="eduactional_qualifications">
+        <%= render :partial => "educational_qualification", :collection => @educational_qualifications %>]
+      </ol>
+    </section>
+  <% end %>
+</div>

@@ -1,0 +1,11 @@
+<div id="pictures_page">
+  <h2><%= @photoalbum.name %></h2>
+  
+  <% if @photoalbum.pictures.empty? %>
+    <p>There are currently no pictures.</p>
+  <% else %>
+    <ol class="list">
+      <%= render :partial => 'pictures/picture', :collection => @photoalbum.pictures %>
+    </ol>
+  <% end %>
+</div>

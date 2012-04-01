@@ -1,0 +1,13 @@
+<div id="photoalbums_page">
+  <h2>Photoalbums</h2>
+
+  <% if @photoalbums.empty? %>
+    <p>There are currently no photoalbums.</p>
+  <% else %>
+    <ol class="list">
+      <%= render :partial => 'photoalbum_mini', :collection => @photoalbums %>
+    </ol>
+  <% end %>
+
+  <%= will_paginate %>
+</div>

@@ -1,0 +1,12 @@
+<% if owner.media_asset %>
+  <%=
+    case owner.media_asset.type
+    when "MediaAsset::AudioAsset"
+      render :partial => 'audio_asset', :locals => { :asset => owner.media_asset }
+    when "MediaAsset::VideoAsset"
+      render :partial => 'video_asset', :locals => { :asset => owner.media_asset }
+    end
+  %>
+<% else %>
+  <span>No media available for this item.</span>
+<% end %>

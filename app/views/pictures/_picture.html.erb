@@ -1,0 +1,4 @@
+<li class="picture_mini">
+  <%= image_tag picture.picture.url(:preview), :alt => picture.title %>
+  <h3><%= link_to picture.title, photoalbum_picture_path(@photoalbum, picture) %></h3>
+</li>
