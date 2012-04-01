@@ -1,58 +1,45 @@
 AndrewMitchell::Application.routes.draw do
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
 
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
+  get         "portfolio/index"
+  get         "portfolio/show"
 
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
+  post        '/auth/:provider/callback' => 'authentications#create'
+  get         '/profile/connected-providers' => 'authentications#index', :as => 'authentications'
+  delete      '/profile/connected-provider/:provider' => 'authentications#destroy', :as => 'authentication'
 
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  devise_for  :users, :controllers => { :registrations => 'registrations' }
+  resources   :users
 
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
 
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
+  ### FRONTEND ###
+  
+  # Static Pages
+  get         '/about'    => 'static_pages#about'
+  get         '/contact'  => 'static_pages#contact'
+  resources   :comments
+  
+  # Posts
+  resources   :posts, :only => [:show, :index] do
+    resources   :comments, :except => [:delete]
+  end
+  get         'posts/category/:category_permalink' => 'posts#category', :as => 'posts_category'
+  get         'posts/tagged/:tag' => 'posts#tagged'
+  
+  # Portfolio
+  get       '/portfolio'  => 'portfolio#index'
+  # resources :portfolio, :only => [:index] do
+  #   resources :comments, :except => [:delete]
+  # end
+  # match 'portfolio/category/:category_permalink' => 'portfolio#category', :as => 'portfolio_category'
+  # match 'portfolio/tagged/:tag' => 'portfolio#tagged'
+  
+  # Photos & Albums
+  resources :photoalbums, :only => [:index, :show] do
+    resources :pictures, :only => [:show] do
+      resources :comments, :except => [:delete]
+    end
+  end
+  match 'pictures/tagged/:tag' => 'pictures#tagged'
 
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
-  #     end
-  #   end
-
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
-
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+  root :to => "posts#index"
 end
