@@ -29,8 +29,8 @@ feature "About Page", %q{
     
     within :xpath, "//section[@id='employment_history']/ol" do
       within :xpath, "li[1]" do
-        page.should have_xpath("h4", :text => "Unboxed")
-        page.should have_xpath("h4/span[@class='company_location']", :text => @eh_item_1.location)
+        page.should have_xpath("h3", :text => "Unboxed")
+        page.should have_xpath("h3/span[@class='company_location']", :text => @eh_item_1.location)
         page.should have_xpath("h5[@class='role']", :text => @eh_item_1.company_role)
         page.should have_xpath("div[@class='role_description']", :text => @eh_item_1.role_description)
         within :xpath, "p[@class='time_period']" do
@@ -39,9 +39,9 @@ feature "About Page", %q{
         end
       end
       
-      page.should have_xpath("li[2]/h4", :text => "Jigsore")
-      page.should have_xpath("li[3]/h4", :text => "Puzzled Records")
-      page.should have_xpath("li[4]/h4", :text => "BSS")
+      page.should have_xpath("li[2]/h3", :text => "Jigsore")
+      page.should have_xpath("li[3]/h3", :text => "Puzzled Records")
+      page.should have_xpath("li[4]/h3", :text => "BSS")
     end
   end
   
@@ -55,8 +55,8 @@ feature "About Page", %q{
     
     within :xpath, "//section[@id='educational_qualifications']/ol" do
       within :xpath, "li[1]" do
-        page.should have_xpath("h4", :text => @eq1.name)
-        page.should have_xpath("h4/span[@class='grade']", :text => @eq1.grade)
+        page.should have_xpath("h3", :text => @eq1.name)
+        page.should have_xpath("h3/span[@class='grade']", :text => @eq1.grade)
         page.should have_xpath("h5[@class='institution']", :text => @eq1.institution)
         within :xpath, "p[@class='time_period']" do
           page.should have_xpath("span[@class='date_from']", :text => @eq1.date_from.strftime("%B %Y"))
@@ -64,9 +64,9 @@ feature "About Page", %q{
         end        
       end
       
-      page.should have_xpath("li[2]/h4", :text => @eq2.name)
-      page.should have_xpath("li[3]/h4", :text => @eq3.name)
-      page.should have_xpath("li[4]/h4", :text => @eq4.name)
+      page.should have_xpath("li[2]/h3", :text => @eq2.name)
+      page.should have_xpath("li[3]/h3", :text => @eq3.name)
+      page.should have_xpath("li[4]/h3", :text => @eq4.name)
     end
   end
   

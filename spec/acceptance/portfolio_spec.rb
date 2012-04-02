@@ -16,7 +16,7 @@ feature "Portfolio Page", %q{
     
     within :xpath, "//ol[@id='portfolio_items']" do    
       within :xpath, "li" do
-        page.should have_xpath( 'h3', :text => @pi1.title )
+        page.should have_xpath( 'h2', :text => @pi1.title )
         page.should have_xpath( 'p', :text => @pi1.description )
       end
     end

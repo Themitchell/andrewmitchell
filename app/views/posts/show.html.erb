@@ -1,5 +1,5 @@
 <div id="post_page">
-  <h2><%= @post.title %></h2>
+  <h1><%= @post.title %></h1>
   
   <p class="author">Posted by <span><%= @post.author.username %></span> on <span><%= published_on_text(@post) %></span></p>
   <p class="body"><%= raw(@post.body) %></p>

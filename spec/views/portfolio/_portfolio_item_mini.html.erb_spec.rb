@@ -8,7 +8,7 @@ describe "/portfolio/_portfolio_item_mini.html.erb" do
 
   it "should render the item title" do
     render :partial => 'portfolio/portfolio_item_mini', :locals => { :portfolio_item_mini => @portfolio_item }
-    rendered.should match("<h3>#{@portfolio_item.title}</h3>")
+    rendered.should match("<h2>#{@portfolio_item.title}</h2>")
   end
   
   it "should render the item description" do

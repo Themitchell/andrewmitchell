@@ -12,7 +12,7 @@ feature "Contact Page", %q{
   scenario "viewing the contact page" do
     
     visit contact_path
-    page.should have_xpath("//h2", :text => "Contact")
+    page.should have_xpath("//h1", :text => "Contact")
     page.should have_xpath("//section[@class='vcard']")
   end
 end
