@@ -28,8 +28,8 @@ feature "Categories", %q{
     current_path.should == posts_category_path(@cat1)
     
     within :xpath, "//div[@id='posts_page']" do
-      page.should have_xpath("//article[@class='post_mini']/h3/a", :text => @post1.title.titleize)
-      page.should_not have_xpath("//article[@class='post_mini']/h3/a", :text => @post2.title.titleize)
+      page.should have_xpath("//article[@class='post_mini']/h3/a", :text => @post1.title)
+      page.should_not have_xpath("//article[@class='post_mini']/h3/a", :text => @post2.title)
     end
   end
 end

@@ -1,6 +1,6 @@
 <li>
   <article class="post_mini">
-  	<h3><%= link_to post_mini.title.titleize, post_path(post_mini) %></h3>
+  	<h3><%= link_to post_mini.title, post_path(post_mini) %></h3>
   	<p class="details">Posted by <span class="author"><%= post_mini.author.username %></span> on <span class="published_on"><%= published_on_text(post_mini) %></span></p>
   	<div class="body"><%= truncate(post_mini.body, :length => 150, :separator => '</p>').html_safe %></div>
   </article>
