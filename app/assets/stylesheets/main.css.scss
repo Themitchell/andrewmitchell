@@ -1,0 +1,12 @@
+/* Fonts */
+$main-font:           'Helvetica Neue', 'Helvetica', 'Arial', 'Sans Serif';
+$background-color:    #DFDFDF;
+
+/* Colour */
+$grad:                #444;
+$dark:                darken($grad, 20%);
+$lite:                lighten($grad, 20%);
+
+/* REQUIRES */
+@import "reset.css.scss";
+@import "text.css.scss";
