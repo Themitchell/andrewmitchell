@@ -1,8 +1,8 @@
 <div id="register_page">
-	<div class="title_block clearfix">
-		<h1>Register</h1>
-		<%= link_to "Back", :back, :class => 'back_link' %>
-	</div>
+	<div class="header_block full_width">
+    <h1 class="half_width left_side">Register</h1>
+    <%= link_to "Back", :back, :class => 'back_link' %>
+  </div>
 	
 	<%= render :partial => 'shared/available_oauth_providers', :locals => { :verb => "register" } %>
 

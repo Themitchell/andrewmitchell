@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   
-  POSTS_PER_PAGE = 5
+  POSTS_PER_PAGE = 6
   
   def index
     @posts = Post.order('published_on DESC').paginate(:page => params[:page], :per_page => POSTS_PER_PAGE)

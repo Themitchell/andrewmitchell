@@ -13,28 +13,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 body {
   line-height: 1;
-  font-family: $main-font;
-  background-color: $background-color;
 }
 
 ol, ul {
   list-style: none;
-}
-
-blockquote {
-  quotes: none;
-  &:before, &:after {
-    content: '';
-    content: none;
-  }
-}
-
-q {
-  quotes: none;
-  &:before, &:after {
-    content: '';
-    content: none;
-  }
 }
 
 table {

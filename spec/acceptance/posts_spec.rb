@@ -22,7 +22,7 @@ feature "Blog Pages", %q{
     )
     visit root_path
 
-    within :xpath, "//ol[@class='list']" do    
+    within :xpath, "//ol[contains(@class,'list')]" do    
       within :xpath, "li[1]" do
         page.should have_content("My Post")
         page.should have_content("This is my post.")
@@ -46,7 +46,7 @@ feature "Blog Pages", %q{
   scenario "pagination on the posts index" do
     Post.destroy_all
     posts = []
-    5.times do |n|
+    6.times do |n|
       post = FactoryGirl.create(:post, published_on: 30.days.ago+n.days)
       posts <<  post
     end

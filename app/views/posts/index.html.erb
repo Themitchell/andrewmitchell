@@ -1,13 +1,23 @@
-<div id="posts_page">
-	<h1>Blog</h1>
-
-	<% if @posts.empty? %>
-		<p>There are currently no posts.</p>
-	<% else %>
-	  <ol class="list">
-		  <%= render :partial => 'post_mini', :collection => @posts %>
-		</ol>
-	<% end %>
-	
-	<%= will_paginate %>
+<div class="header_block full_width">
+  <h1 class="quarter_width left_side">Blog</h1>
+  
+  <nav id="category_nav" class="three_quarter_width right_side">
+    <ul>
+  	  <% if @categories.any? %>
+  		  <% @categories.each do |cat| %>
+  			  <li><%= link_to cat.name, posts_category_path(cat) %></li>
+  			<% end %>
+  		<% end %>
+  	</ul>
+  </nav>
 </div>
+
+<% if @posts.empty? %>
+	<p>There are currently no posts.</p>
+<% else %>
+  <ol class="list full_width">
+	  <%= render :partial => 'post_mini', :collection => @posts %>
+	</ol>
+<% end %>
+
+<%= will_paginate %>

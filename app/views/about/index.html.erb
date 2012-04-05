@@ -1,0 +1,12 @@
+<% if @personal_statement && @personal_statement.body.present? %>
+  <section name="about" id="about">
+    <div class="header_block full_width">
+      <h1 class="half_width left_side">About</h1>
+      <%= render :partial => 'about_nav' %>
+    </div>
+    
+    <div id="about_me" class="half_width left_side">
+    	<%= @personal_statement.body.html_safe %>
+    </div>
+  </section>
+<% end %>

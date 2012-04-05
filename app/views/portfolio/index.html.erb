@@ -1,7 +1,7 @@
-<div id="protfolio_page">
-  <h1>Portfolio</h1>
-  
-  <ol id="portfolio_items">
-    <%= render :partial => 'portfolio_item_mini', :collection => @portfolio_items %>
-  </ol>
+<div class="header_block full_width">
+  <h1 class="half_width left_side">Portfolio</h1>
 </div>
+  
+<ol id="portfolio_items" class="full_width">
+  <%= render :partial => 'portfolio_item_mini', :collection => @portfolio_items %>
+</ol>

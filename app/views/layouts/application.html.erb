@@ -7,24 +7,30 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-  <div id="container">  
-    <%= render :partial => 'shared/flash_messages' %>
-      
-    <div id="header">
-      <div id="main_logo">Andrew Mitchell :: Online Portfolio</div>
-      <%= render :partial => 'shared/login_nav' %>
-    </div>
+  <header>
+    <div class="full_width">
+      <div id="main_logo" class="half_width left_side">Andrew Mitchell :: Online Portfolio</div>
 
-    <%= render :partial => 'shared/nav' %>
-
-    <div id="content">      
-      <div id="main">
-        <%= yield %>
+      <div class="user_info half_width right_side">
+        <%= render :partial => 'shared/login_nav' %>
+        <%= render :partial => 'shared/flash_messages' %>
       </div>
-      <%= render :partial => 'shared/side' %>
     </div>
-
-    <%= render :partial => 'shared/footer' %>
+  </header>
+  
+  <%= render :partial => 'shared/nav' %>
+  
+  <div id="viewport">
+    <div id="scrollable_area">
+      <%= yield %>
+    </div>
   </div>
+
+  <footer>
+    <div class="full_width">
+  	  <p>All content © Andrew Mitchell 2011<p>
+  	  <a href="mailto:themitchell@me.com">themitchell@me.com</a>
+  	</div>
+  </footer>
 </body>
 </html>

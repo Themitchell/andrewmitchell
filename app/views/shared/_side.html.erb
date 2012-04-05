@@ -6,7 +6,7 @@
 		<ul>
 		  <% if @categories.any? %>
   		  <% @categories.each do |cat| %>
-  			  <li class="<%= cat.permalink %>"><%= link_to cat.name.titleize, posts_category_path(cat) %></li>
+  			  <li><%= link_to cat.name.titleize, posts_category_path(cat) %></li>
   			<% end %>
   		<% end %>
 		</ul>

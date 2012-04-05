@@ -1,0 +1,12 @@
+<% if @employment_history.any? %>
+  <section name="employment_history" id="employment_history">
+    <div class="header_block full_width">
+      <h1 class="half_width left_side">Employment History</h1>
+      <%= render :partial => 'about_nav' %>
+    </div>
+    
+    <ol class="list full_width">
+      <%= render :partial => "employment_history_item", :collection => @employment_history %>
+    </ol>
+  </section>
+<% end %>

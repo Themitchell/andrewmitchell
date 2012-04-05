@@ -14,7 +14,7 @@ feature "About Page", %q{
     
     visit about_path
     
-    within :xpath, "//section[@id='personal_statement']" do      
+    within :xpath, "//div[@id='about_me']" do      
       page.should have_xpath( 'p', :text => 'some bunch  of text here')
     end
   end
@@ -25,7 +25,7 @@ feature "About Page", %q{
     @eh_item_1 = FactoryGirl.create(:employment_history_item, company_name: "Unboxed",          date_to: nil, location: "London")
     @eh_item_4 = FactoryGirl.create(:employment_history_item, company_name: "BSS",              date_to: 6.days.ago.to_date)
     
-    visit about_path
+    visit employment_history_path
     
     within :xpath, "//section[@id='employment_history']/ol" do
       within :xpath, "li[1]" do
@@ -51,7 +51,7 @@ feature "About Page", %q{
     @eq1 = FactoryGirl.create(:educational_qualification, name: "Maths",    date_to: nil, grade: "merit")
     @eq4 = FactoryGirl.create(:educational_qualification, name: "Biology",  date_to: 6.days.ago.to_date)
     
-    visit about_path
+    visit educational_qualifications_path
     
     within :xpath, "//section[@id='educational_qualifications']/ol" do
       within :xpath, "li[1]" do
@@ -73,11 +73,15 @@ feature "About Page", %q{
   scenario "viewing the about page with some nil values" do
     
     visit about_path
-    
-    page.should_not have_xpath("//section[@id='personal_statement']")
-    page.should_not have_xpath("//section[@id='employment_history']")
-    page.should_not have_xpath("//section[@id='educational_qualifications']")
-    
     page.status_code.should == 200
+    page.should_not have_xpath("//section[@id='personal_statement']")
+    
+    visit employment_history_path
+    page.status_code.should == 200
+    page.should_not have_xpath("//section[@id='employment_history']")
+    
+    visit educational_qualifications_path
+    page.status_code.should == 200
+    page.should_not have_xpath("//section[@id='educational_qualifications']")
   end
 end

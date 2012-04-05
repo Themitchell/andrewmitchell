@@ -14,22 +14,19 @@ feature "Categories", %q{
     @post2 = FactoryGirl.create(:post, category: @cat2)
   end
 
-  scenario "categories index" do
+  scenario "categories index ordered alphabetically" do
     visit root_path
 
-    within :xpath, "//aside[@id='categories']/ul" do      
-      page.should have_xpath( "li[1][contains(@class, '#{@cat2.permalink}')]/a[@href='#{posts_category_path(@cat2)}']",
-                              :text => @cat2.name.titleize)
-      within :xpath, "li[2][contains(@class, '#{@cat1.permalink}')]" do
-        click_link @cat1.name.titleize
+    within :xpath, "//nav[@id='category_nav']/ul" do
+      page.should have_xpath( "li[1]/a[@href='#{posts_category_path(@cat2)}']", :text => @cat2.name)
+      within :xpath, "li[2]" do
+        click_link @cat1.name
       end
     end
                             
     current_path.should == posts_category_path(@cat1)
     
-    within :xpath, "//div[@id='posts_page']" do
-      page.should have_xpath("//article[@class='post_mini']/h2/a", :text => @post1.title)
-      page.should_not have_xpath("//article[@class='post_mini']/h2/a", :text => @post2.title)
-    end
+    page.should have_xpath("//article[@class='post_mini']/h2/a", :text => @post1.title)
+    page.should_not have_xpath("//article[@class='post_mini']/h2/a", :text => @post2.title)
   end
 end

@@ -1,0 +1,110 @@
+body {
+  background-color:         $bg-color;
+}
+
+header, footer, #main_nav {
+  width:                    100%;
+  background-color:         $bg-alt-color;
+  color:                    $bg-color;
+  position:                 absolute;
+  
+  a {
+    height:                 100%;
+    color:                  $bg-color;
+    text-decoration:        $decor;
+
+    &:hover {
+      color:                  $decor-alt-color;
+    }
+  }
+}
+
+header {
+  height:                   12%;
+  top:                      0;
+  left:                     0;
+  color:                    $bg-color;
+  
+  #main_logo, #user_info {
+    padding-top:              2%;
+    padding-bottom:           2%;
+  }
+  #main_logo {
+    font-size:                2em;
+  }
+}
+
+#viewport {
+  position:                 absolute;
+  top:                      16%;
+  left:                     0;
+  height:                   69%;
+  width:                    100%;
+  overflow-y:               auto;
+}
+
+#scrollable_area {
+  height:                   100%;
+  min-width:                100%;
+}
+
+.header_block {
+  padding-top:               1%;
+}
+  
+footer {
+  height:                   15%;
+  bottom:                   0;
+  left:                     0;
+  
+  p {
+    text-align:               center;
+    font-size:                0.75em;
+  }
+}
+
+.quarter_width {
+  width:                    16%;
+  
+  &.left_side {
+    padding-right:          2%;
+  }
+  &.right_side {
+    padding-left:           2%;
+  }
+}
+
+.half_width {
+  width:                    48%;
+  
+  &.left_side {
+    padding-right:          2%;
+  }
+  &.right_side {
+    padding-left:           2%;
+  }
+}
+.three_quarter_width {
+  width:                    80%;
+  
+  &.left_side {
+    padding-right:          2%;
+  }
+  &.right_side {
+    padding-left:           2%;
+  }
+}
+.full_width {
+  width:                    92%;
+  padding-left:             4%;
+  padding-right:            4%;
+  overflow-y:               auto;
+}
+.left_side {
+  float:                    left;
+  text-align:               left;
+}
+.right_side {
+  float:                    right;
+  text-align:               right;
+}

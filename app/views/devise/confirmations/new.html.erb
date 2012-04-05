@@ -1,4 +1,7 @@
-<h1>Resend confirmation instructions</h1>
+<div class="header_block full_width">
+  <h1 class="half_width left_side">Resend Confirmation Instructions</h1>
+  <%= link_to "Back", :back, :class => 'back_link' %>
+</div>
 
 <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>

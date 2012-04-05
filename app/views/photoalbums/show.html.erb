@@ -1,11 +1,12 @@
-<div id="pictures_page">
-  <h1><%= @photoalbum.name %></h1>
-  
-  <% if @photoalbum.pictures.empty? %>
-    <p>There are currently no pictures.</p>
-  <% else %>
-    <ol class="list">
-      <%= render :partial => 'pictures/picture', :collection => @pictures %>
-    </ol>
-  <% end %>
+<div class="header_block full_width">
+  <h1 class="half_width left_side"><%= @photoalbum.name %></h1>
+  <%= link_to "Back", :back, :class => 'back_link' %>
 </div>
+  
+<% if @photoalbum.pictures.empty? %>
+  <p>There are currently no pictures.</p>
+<% else %>
+  <ol class="list">
+    <%= render :partial => 'pictures/picture', :collection => @pictures %>
+  </ol>
+<% end %>
