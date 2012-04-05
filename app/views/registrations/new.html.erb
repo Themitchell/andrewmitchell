@@ -1,67 +1,65 @@
-<div id="register_page">
-	<div class="header_block full_width">
-    <h1 class="half_width left_side">Register</h1>
-    <%= link_to "Back", :back, :class => 'back_link' %>
-  </div>
+<div class="header_block full_width">
+  <h1 class="half_width left_side">Register</h1>
+  <%= link_to "Back", :back, :class => 'back_link' %>
+</div>
+
+<%= render :partial => 'shared/available_oauth_providers', :locals => { :verb => "register" } %>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+	<div class="row">
+		<%= f.label :username, "Username:" %><br />
+	  <%= f.text_field :username %>
+	</row>
 	
-	<%= render :partial => 'shared/available_oauth_providers', :locals => { :verb => "register" } %>
-
-	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-	  <%= devise_error_messages! %>
-
-		<div class="row">
-			<%= f.label :username, "Username:" %><br />
-		  <%= f.text_field :username %>
+  <% if @user.password_required? %>
+	  <div class="row">
+			<%= f.label :password, "Password:" %><br />
+		  <%= f.password_field :password %>
 		</row>
-		
-    <% if @user.password_required? %>
-  	  <div class="row">
-  			<%= f.label :password, "Password:" %><br />
-  		  <%= f.password_field :password %>
-  		</row>
 
-  	  <div class="row">
-  			<%= f.label :password_confirmation, "Password Confirmation:" %><br />
-  		  <%= f.password_field :password_confirmation %>
-  		</row>
-		
-  		- Optional Fields -
-		
-  		<div class="row avatar_upload">
-        <%= f.label :avatar, 'Avatar:' %>
-        <%= f.file_field :avatar %>
-      </div>
-      
-      <div class="row">
-  			<%= f.label :email, "Email:" %><br />
-  		  <%= f.text_field :email %>
-  		</row>
-		
-  		<div class="row">
-  			<%= f.label :first_name, "First Name:" %><br />
-  		  <%= f.password_field :first_name %>
-  		</row>
-		
-  		<div class="row">
-  			<%= f.label :last_name, "Last Name:" %><br />
-  		  <%= f.password_field :last_name %>
-  		</row>
-		
-  		<div class="row">
-  			<%= f.label :dob, "Date of Birth:" %><br />
-  		  <%= f.password_field :dob %>
-  		</row>
-		
-  		<div class="row">
-  			<%= f.label :website_url, "Website Url:" %><br />
-  		  <%= f.password_field :website_url %>
-  		</row>
-		<% end %>
-
-	  <div class="submit_row row">
-			<%= f.submit "Save" %>
+	  <div class="row">
+			<%= f.label :password_confirmation, "Password Confirmation:" %><br />
+		  <%= f.password_field :password_confirmation %>
+		</row>
+	
+		- Optional Fields -
+	
+		<div class="row avatar_upload">
+      <%= f.label :avatar, 'Avatar:' %>
+      <%= f.file_field :avatar %>
+    </div>
+    
+    <div class="row">
+			<%= f.label :email, "Email:" %><br />
+		  <%= f.text_field :email %>
+		</row>
+	
+		<div class="row">
+			<%= f.label :first_name, "First Name:" %><br />
+		  <%= f.password_field :first_name %>
+		</row>
+	
+		<div class="row">
+			<%= f.label :last_name, "Last Name:" %><br />
+		  <%= f.password_field :last_name %>
+		</row>
+	
+		<div class="row">
+			<%= f.label :dob, "Date of Birth:" %><br />
+		  <%= f.password_field :dob %>
+		</row>
+	
+		<div class="row">
+			<%= f.label :website_url, "Website Url:" %><br />
+		  <%= f.password_field :website_url %>
 		</row>
 	<% end %>
 
-	<%= render :partial => "devise/shared/links" %>
-</div>
+  <div class="submit_row row">
+		<%= f.submit "Save" %>
+	</row>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>

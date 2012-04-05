@@ -1,32 +1,30 @@
-<div id="user_page">
-	<div class="header_block full_width">
-    <h1 class="half_width left_side">User: <%= @user.username %></h1>
-  </div>
-		
-	<div class="row avatar_remove">
-		<p>Avatar:</p>
-    <div class="avatar">
-			<% if @user.has_avatar? %>
-				<%= image_tag @user.avatar.url(:avatar), :alt => @user.username %>
-			<% else %>
-				<%= image_tag "blank_avatar.gif", :alt => @user.username %>
-			<% end %>
-		</div>
-  </div>
+<div class="header_block full_width">
+  <h1 class="half_width left_side">User: <%= @user.username %></h1>
+</div>
 	
-	<div class="row">
-		<p>Name: <%= @user.first_name if @user.first_name %> <%= @user.last_name if @user.last_name %></p>
+<div class="row avatar_remove">
+	<p>Avatar:</p>
+  <div class="avatar">
+		<% if @user.has_avatar? %>
+			<%= image_tag @user.avatar.url(:avatar), :alt => @user.username %>
+		<% else %>
+			<%= image_tag "blank_avatar.gif", :alt => @user.username %>
+		<% end %>
 	</div>
-	
-	<div class="row">
-		<p>Email: <%= @user.email %></p>
-	</div>
-	
-	<div class="row">
-		<p>Date of Birth: <%= @user.dob %></p>
-	</div>
-	
-	<div class="row">
-		<p>Website Url: <%= @user.dob %></p>
-	</div>
+</div>
+
+<div class="row">
+	<p>Name: <%= @user.first_name if @user.first_name %> <%= @user.last_name if @user.last_name %></p>
+</div>
+
+<div class="row">
+	<p>Email: <%= @user.email %></p>
+</div>
+
+<div class="row">
+	<p>Date of Birth: <%= @user.dob %></p>
+</div>
+
+<div class="row">
+	<p>Website Url: <%= @user.dob %></p>
 </div>

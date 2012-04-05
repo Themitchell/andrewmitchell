@@ -1,34 +1,32 @@
-<div id="login_page">
-	<div class="header_block full_width">
-    <h1 class="half_width left_side">Login</h1>
-    <%= link_to "Back", :back, :class => 'back_link' %>
+<div class="header_block full_width">
+  <h1 class="half_width left_side">Login</h1>
+  <%= link_to "Back", :back, :class => 'back_link' %>
+</div>
+
+<%= render :partial => 'shared/available_oauth_providers', :locals => { :verb => "login" } %>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "generic_form"}) do |f| %>
+  <div class="row">
+    <%= f.label :login, 'Login (email or username):' %>
+    <%= f.text_field :login %>
   </div>
-  
-  <%= render :partial => 'shared/available_oauth_providers', :locals => { :verb => "login" } %>
-  
-  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "generic_form"}) do |f| %>
-    <div class="row">
-      <%= f.label :login, 'Login (email or username):' %>
-      <%= f.text_field :login %>
-    </div>
-  
-    <div class="row">
-      <%= f.label :password, 'Password:' %>
-      <%= f.password_field :password %>
-    </div>
 
-    <% if devise_mapping.rememberable? -%>
-      <div class="row checkbox_row">
-        <%= f.label :remember_me %>
-        <%= f.check_box :remember_me %>
-      </div>
-    <% end -%>
+  <div class="row">
+    <%= f.label :password, 'Password:' %>
+    <%= f.password_field :password %>
+  </div>
 
-    <div class="submit_row row">
-      <%= f.submit "Login" %>
+  <% if devise_mapping.rememberable? -%>
+    <div class="row checkbox_row">
+      <%= f.label :remember_me %>
+      <%= f.check_box :remember_me %>
     </div>
+  <% end -%>
 
-  <% end %>
+  <div class="submit_row row">
+    <%= f.submit "Login" %>
+  </div>
+
+<% end %>
 
 <%= render :partial => "devise/shared/links" %>
-</div>

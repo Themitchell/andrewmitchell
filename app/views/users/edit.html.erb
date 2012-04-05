@@ -1,52 +1,50 @@
-<div id="edit_user_page">
-	<div class="header_block full_width">
-    <h1 class="half_width left_side">Edit Profile</h1>
-    <%= link_to "Back", :back, :class => 'back_link' %>
-  </div>
-
-	<%= form_for @user, :html => { :multipart => true } do |form| %>
-
-		<% if @user.has_avatar? %>
-    	<div class="row avatar_remove">
-        <%= hidden_field_tag :has_avatar %>
-        <%= form.label :avatar_file_name, 'Avatar:' %>
-        <div class="avatar"><%= image_tag @user.avatar.url(:avatar), :alt => @user.username %></div>
-        <%= submit_tag 'Remove', :class => 'delete_link', :confirm => 'Are you sure you want to remove your avatar?' %>
-      </div>
-    <% else %>
-      <div class="row avatar_upload">
-        <%= form.label :avatar, 'Avatar:' %>
-        <%= form.file_field :avatar %>
-      </div>
-    <% end %>
-
-		<div class="row">
-			<%= form.label :first_name, "First Name:" %>
-			<%= form.text_field :first_name %>
-		</div>
-
-		<div class="row">
-			<%= form.label :last_name, "Last Name:" %>
-			<%= form.text_field :last_name %>
-		</div>
-		
-		<div class="row">
-			<%= form.label :email, "Email:" %>
-			<%= form.text_field :email %>
-		</div>
-		
-		<div class="row">
-			<%= form.label :dob, "Date of Birth:" %>
-			<%= form.text_field :dob %>
-		</div>
-		
-		<div class="row">
-			<%= form.label :website_url, "Website Url:" %>
-			<%= form.text_field :website_url %>
-		</div>
-
-		<div class="submit_row row">
-			<%= submit_tag "Save" %>
-		</div>
-	<% end %>
+<div class="header_block full_width">
+  <h1 class="half_width left_side">Edit Profile</h1>
+  <%= link_to "Back", :back, :class => 'back_link' %>
 </div>
+
+<%= form_for @user, :html => { :multipart => true } do |form| %>
+
+	<% if @user.has_avatar? %>
+  	<div class="row avatar_remove">
+      <%= hidden_field_tag :has_avatar %>
+      <%= form.label :avatar_file_name, 'Avatar:' %>
+      <div class="avatar"><%= image_tag @user.avatar.url(:avatar), :alt => @user.username %></div>
+      <%= submit_tag 'Remove', :class => 'delete_link', :confirm => 'Are you sure you want to remove your avatar?' %>
+    </div>
+  <% else %>
+    <div class="row avatar_upload">
+      <%= form.label :avatar, 'Avatar:' %>
+      <%= form.file_field :avatar %>
+    </div>
+  <% end %>
+
+	<div class="row">
+		<%= form.label :first_name, "First Name:" %>
+		<%= form.text_field :first_name %>
+	</div>
+
+	<div class="row">
+		<%= form.label :last_name, "Last Name:" %>
+		<%= form.text_field :last_name %>
+	</div>
+	
+	<div class="row">
+		<%= form.label :email, "Email:" %>
+		<%= form.text_field :email %>
+	</div>
+	
+	<div class="row">
+		<%= form.label :dob, "Date of Birth:" %>
+		<%= form.text_field :dob %>
+	</div>
+	
+	<div class="row">
+		<%= form.label :website_url, "Website Url:" %>
+		<%= form.text_field :website_url %>
+	</div>
+
+	<div class="submit_row row">
+		<%= submit_tag "Save" %>
+	</div>
+<% end %>
