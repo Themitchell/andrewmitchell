@@ -14,7 +14,6 @@ gem 'permalink_fu'
 gem 'jquery-rails'
 gem "asset_sync"
 gem 'aws-s3'
-gem 'modernizr-rails'
 gem 'tabnav'
 
 group :production, :staging do
