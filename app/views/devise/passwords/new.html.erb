@@ -1,7 +1,5 @@
-<div class="header_block full_width">
-  <h1 class="half_width left_side">Forgot your password?</h1>
-  <%= link_to "Back", :back, :class => 'back_link' %>
-</div>
+<%= link_to "Back", :back, :class => 'back_link' %>
+<h1>Forgot your password?</h1>
 
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>

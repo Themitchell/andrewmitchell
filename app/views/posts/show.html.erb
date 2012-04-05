@@ -1,7 +1,5 @@
-<div class="header_block full_width">
-  <h1 class="half_width left_side"><%= @post.title %></h1>
-  <%= link_to "Back", :back, :class => 'back_link' %>
-</div>
+<%= link_to "Back", :back, :class => 'back_link' %>
+<h1><%= @post.title %></h1>
   
 <p class="author">Posted by <span><%= @post.author.username %></span> on <span><%= published_on_text(@post) %></span></p>
 <p class="body"><%= raw(@post.body) %></p>

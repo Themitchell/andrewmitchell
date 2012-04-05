@@ -1,7 +1,5 @@
-<div class="header_block full_width">
-  <h1 class="half_width left_side">Login</h1>
-  <%= link_to "Back", :back, :class => 'back_link' %>
-</div>
+<%= link_to "Back", :back, :class => 'back_link' %>
+<h1>Login</h1>
 
 <%= render :partial => 'shared/available_oauth_providers', :locals => { :verb => "login" } %>
 

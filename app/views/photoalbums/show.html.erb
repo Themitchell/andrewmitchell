@@ -1,7 +1,5 @@
-<div class="header_block full_width">
-  <h1 class="half_width left_side"><%= @photoalbum.name %></h1>
-  <%= link_to "Back", :back, :class => 'back_link' %>
-</div>
+<%= link_to "Back", :back, :class => 'back_link' %>
+<h1><%= @photoalbum.name %></h1>
   
 <% if @photoalbum.pictures.empty? %>
   <p>There are currently no pictures.</p>

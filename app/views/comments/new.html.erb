@@ -1,15 +1,13 @@
-<div id="new_comment">
-  <h1>New Comment</h1>
-    
-  <%= form_for [@commentable, @comment] do |form| %>
-    <ol class="formList">
-      <div class="row">
-        <%= form.label :body, "Comment:" %>
-        <%= form.text_area :body, :rows => 3 %>
-      </div>
-      <div class="submit_row row">
-        <%= submit_tag "Save" %>
-      </div>  
-    </ol>  
-  <% end %>
-</div>
+<%= link_to "Back", :back, :class => 'back_link' %>
+<h1>New Comment</h1>
+  
+<%= form_for [@commentable, @comment] do |form| %>
+  <div class="row">
+    <%= form.label :body, "Comment:" %>
+    <%= form.text_area :body, :rows => 3 %>
+  </div>
+  
+  <div class="submit_row row">
+    <%= submit_tag "Save" %>
+  </div>  
+<% end %>

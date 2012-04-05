@@ -1,16 +1,15 @@
-<div class="header_block full_width">
-  <h1 class="quarter_width left_side">Blog</h1>
-  
-  <nav id="category_nav" class="three_quarter_width right_side">
-    <ul>
-  	  <% if @categories.any? %>
-  		  <% @categories.each do |cat| %>
-  			  <li><%= link_to cat.name, posts_category_path(cat) %></li>
-  			<% end %>
-  		<% end %>
-  	</ul>
-  </nav>
-</div>
+<nav id="category_nav" class="subnav full_width">
+  <ul>
+	  <% if @categories.any? %>
+	    <% cat1 = @categories.shift %>
+	    <li class="no_border"><%= link_to cat1.name, posts_category_path(cat1) %></li>
+		  <% @categories.each do |cat, i| %>
+			    <li><%= link_to cat.name, posts_category_path(cat) %></li>
+			<% end %>
+		<% end %>
+	</ul>
+</nav>
+<h1>Blog</h1>
 
 <% if @posts.empty? %>
 	<p>There are currently no posts.</p>

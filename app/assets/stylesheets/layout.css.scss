@@ -53,24 +53,13 @@ header {
 }
   
 footer {
-  height:                   15%;
+  height:                   10%;
   bottom:                   0;
   left:                     0;
   
   p {
     text-align:               center;
     font-size:                0.75em;
-  }
-}
-
-.quarter_width {
-  width:                    16%;
-  
-  &.left_side {
-    padding-right:          2%;
-  }
-  &.right_side {
-    padding-left:           2%;
   }
 }
 
@@ -84,16 +73,7 @@ footer {
     padding-left:           2%;
   }
 }
-.three_quarter_width {
-  width:                    80%;
-  
-  &.left_side {
-    padding-right:          2%;
-  }
-  &.right_side {
-    padding-left:           2%;
-  }
-}
+
 .full_width {
   width:                    92%;
   padding-left:             4%;
