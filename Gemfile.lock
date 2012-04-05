@@ -122,6 +122,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.18)
+    modernizr-rails (2.0.6)
     multi_json (1.2.0)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
@@ -254,6 +255,7 @@ DEPENDENCIES
   heroku
   jquery-rails
   launchy
+  modernizr-rails
   omniauth-twitter
   paperclip
   permalink_fu
