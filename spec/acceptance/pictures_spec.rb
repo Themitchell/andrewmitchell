@@ -66,21 +66,4 @@ feature "Photo Albums Pages", %q{
     end
     page.should_not have_content(old_pic.title)
   end
-  
-  scenario "pagination on the photoalbums index" do
-    Photoalbum.destroy_all
-    photoalbums = []
-    20.times do |n|
-      album = FactoryGirl.create(:photoalbum, published_on: 30.days.ago+n.days)
-      photoalbums <<  album
-    end
-    old_pa = FactoryGirl.create(:photoalbum, published_on: 1.year.ago)
-    
-    visit photoalbums_path
-    
-    photoalbums.each do |pa|
-      page.should have_content(pa.name)
-    end
-    page.should_not have_content(old_pa.name)
-  end
 end

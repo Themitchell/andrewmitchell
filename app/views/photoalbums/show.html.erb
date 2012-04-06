@@ -1,5 +1,8 @@
 <%= link_to "Back", :back, :class => 'back_link' %>
 <h1><%= @photoalbum.name %></h1>
+<p class="author">Posted by <span><%= @photoalbum.author.username %></span> on <span><%= published_on_text(@photoalbum) %></span></p>
+
+<p class="description"><%= @photoalbum.description %></p>
   
 <% if @photoalbum.pictures.empty? %>
   <p>There are currently no pictures.</p>

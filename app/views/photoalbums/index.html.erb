@@ -2,7 +2,7 @@
 <h1>Photo Albums</h1>
 
 <% if @photoalbums.empty? %>
-  <p>There are currently no photoalbums.</p>
+  <p>There are currently no photo albums.</p>
 <% else %>
   <ol class="list">
     <%= render :partial => 'photoalbum_mini', :collection => @photoalbums %>
