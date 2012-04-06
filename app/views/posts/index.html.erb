@@ -1,4 +1,4 @@
-<nav id="category_nav" class="subnav full_width">
+<nav id="category_nav" class="subnav">
   <ul>
 	  <% if @categories.any? %>
 	    <% cat1 = @categories.shift %>
@@ -14,7 +14,7 @@
 <% if @posts.empty? %>
 	<p>There are currently no posts.</p>
 <% else %>
-  <ol class="list full_width">
+  <ol class="list">
 	  <%= render :partial => 'post_mini', :collection => @posts %>
 	</ol>
 <% end %>

@@ -9,30 +9,28 @@
   <meta name="viewport" content="initial-scale=1.0; minimum-scale=1.0">
 </head>
 <body>
+<div class="container">
   <header>
-    <div class="full_width">
-      <div id="main_logo" class="half_width left_side">Andrew Mitchell :: Online Portfolio</div>
+    <div id="main_logo">Andrew Mitchell :: Online Portfolio</div>
 
-      <div class="user_info half_width right_side">
-        <%= render :partial => 'shared/login_nav' %>
-        <%= render :partial => 'shared/flash_messages' %>
-      </div>
+    <div id="user_info">
+      <%= render :partial => 'shared/login_nav' %>
+      <%= render :partial => 'shared/flash_messages' %>
     </div>
   </header>
   
   <%= render :partial => 'shared/nav' %>
   
-  <div id="viewport">
-    <div id="scrollable_area">
-      <%= yield %>
-    </div>
+  <div id="content">
+    <%= yield %>
   </div>
 
   <footer>
-    <div class="full_width">
+    <div>
   	  <p>All content © Andrew Mitchell 2011<p>
   	  <a href="mailto:themitchell@me.com">themitchell@me.com</a>
   	</div>
   </footer>
+</div>
 </body>
 </html>
