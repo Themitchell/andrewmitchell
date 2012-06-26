@@ -138,7 +138,7 @@ GEM
     omniauth-twitter (0.0.9)
       omniauth-oauth (~> 1.0)
     orm_adapter (0.0.7)
-    paperclip (3.0.1)
+    paperclip (3.1.2)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
       activesupport (>= 3.0.0)

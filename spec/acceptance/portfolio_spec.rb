@@ -11,10 +11,10 @@ feature "Portfolio Page", %q{
   end
 
   scenario "viewing the portfolio page with minimal attributes" do
-        
+
     visit portfolio_path
-    
-    within :xpath, "//ol[@id='portfolio_items']" do    
+
+    within :xpath, "//ol[@class='list']" do    
       within :xpath, "li" do
         page.should have_xpath( 'h2', :text => @pi1.title )
         page.should have_xpath( 'p', :text => @pi1.description )

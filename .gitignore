@@ -14,8 +14,9 @@
 /log/*.log
 /tmp
 
-# Ignore RVM
+# Ignore RVM & RbEnv
 .rvmrc
+.rbenv*
 
 .sass-cache
 .bundle

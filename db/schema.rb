@@ -17,23 +17,23 @@ ActiveRecord::Schema.define(:version => 20120206165148) do
     t.integer  "user_id"
     t.string   "provider"
     t.string   "uid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.integer  "author_id"
     t.string   "permalink"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "comments", :force => true do |t|
     t.text     "body"
     t.integer  "author_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.integer  "commentable_id"
     t.string   "commentable_type"
   end
@@ -41,16 +41,16 @@ ActiveRecord::Schema.define(:version => 20120206165148) do
   create_table "content_blocks", :force => true do |t|
     t.string   "name"
     t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "educational_qualifications", :force => true do |t|
     t.string   "name"
     t.string   "institution"
     t.string   "grade"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.date     "date_from"
     t.date     "date_to"
   end
@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(:version => 20120206165148) do
     t.date     "date_from"
     t.date     "date_to"
     t.string   "location"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "media_assets", :force => true do |t|
@@ -75,8 +75,8 @@ ActiveRecord::Schema.define(:version => 20120206165148) do
     t.integer  "splash_screen_file_size"
     t.integer  "owner_id"
     t.string   "owner_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "photoalbums", :force => true do |t|
@@ -84,8 +84,8 @@ ActiveRecord::Schema.define(:version => 20120206165148) do
     t.string   "name"
     t.text     "description"
     t.datetime "published_on"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "permalink"
   end
 
@@ -97,8 +97,8 @@ ActiveRecord::Schema.define(:version => 20120206165148) do
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
     t.integer  "photoalbum_id"
     t.string   "permalink"
   end
@@ -109,8 +109,8 @@ ActiveRecord::Schema.define(:version => 20120206165148) do
     t.string   "description"
     t.datetime "published_on"
     t.integer  "author_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "posts", :force => true do |t|
@@ -118,8 +118,8 @@ ActiveRecord::Schema.define(:version => 20120206165148) do
     t.text     "body"
     t.integer  "author_id"
     t.datetime "published_on"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "permalink"
     t.integer  "category_id"
   end
@@ -131,8 +131,8 @@ ActiveRecord::Schema.define(:version => 20120206165148) do
     t.string   "table"
     t.integer  "month",      :limit => 2
     t.integer  "year",       :limit => 8
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
@@ -155,19 +155,19 @@ ActiveRecord::Schema.define(:version => 20120206165148) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "encrypted_password",   :limit => 128, :default => "",       :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "",       :null => false
     t.string   "reset_password_token"
-    t.string   "remember_token"
+    t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       :default => 0
+    t.integer  "sign_in_count",                         :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                                  :null => false
+    t.datetime "updated_at",                                                  :null => false
     t.string   "username"
-    t.string   "role",                                :default => "member"
+    t.string   "role",                                  :default => "member"
     t.string   "first_name"
     t.string   "last_name"
     t.date     "dob"
