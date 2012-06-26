@@ -15,6 +15,7 @@ gem 'jquery-rails'
 gem "asset_sync"
 gem 'aws-s3'
 gem 'tabnav'
+gem "twitter-bootstrap-rails"
 
 group :production, :staging do
   # gem 'therubyracer-heroku', '~> 0.8.1.pre3', :platform => :ruby
