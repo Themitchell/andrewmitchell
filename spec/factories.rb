@@ -29,7 +29,7 @@ FactoryGirl.define do
 
   factory :category do
     sequence(:name)           { |n| "test category #{n}" }
-    association :author,     :factory => :user
+    association :author,     :factory => :admin
   end
 
   factory :content_block do
@@ -53,7 +53,7 @@ FactoryGirl.define do
   factory :photoalbum do
     sequence(:name)           { |n| "test photoalbum #{n}" }
     description               "test_photoalbum description"
-    association :author,      :factory => :user
+    association :author,      :factory => :admin
     sequence(:published_on)   { |n| n.minutes.from_now }
   end
 
@@ -61,7 +61,7 @@ FactoryGirl.define do
     sequence(:title)          { |n| "test picture #{n}" }
     picture                   { File.open("#{Rails.root}/spec/support/images/picture.jpg") }
     sequence(:published_on)   { |n| n.minutes.from_now}
-    association :author,      :factory => :user
+    association :author,      :factory => :admin
     association :photoalbum,  :factory => :photoalbum
   end
 
@@ -69,7 +69,7 @@ FactoryGirl.define do
     sequence(:title)          { |n| "test post #{n}" }
     body                      'This is a factory generated post body'
     sequence(:published_on)   { |n| n.minutes.from_now }
-    association :author,      :factory => :user
+    association :author,      :factory => :admin
     association :category,    :factory => :category
   end
 
@@ -77,7 +77,7 @@ FactoryGirl.define do
     sequence(:title)          { |n| "test post #{n}" }
     description               'This is a factory generated portfolio item description'
     sequence(:published_on)   { |n| n.minutes.from_now }
-    association :author,      :factory => :user
+    association :author,      :factory => :admin
     # port_item.association :category,                :factory => :category
   end
 

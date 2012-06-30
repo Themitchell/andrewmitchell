@@ -1,6 +1,11 @@
 require File.expand_path(File.dirname(__FILE__) + '../../../support/spec_helper')
 
+describe Admin::HomeController do
+  it { controller.should be_a Admin::AdminController }
+end
+
 describe Admin::HomeController, '#index' do
+
   context "with no user" do
     before do
       get :index
@@ -24,6 +29,7 @@ describe Admin::HomeController, '#index' do
       get :index
     end
 
+    it { should render_with_layout('admin') }
     it { should render_template(:index) }
   end
 
@@ -33,6 +39,7 @@ describe Admin::HomeController, '#index' do
       get :index
     end
 
+    it { should render_with_layout('admin')}
     it { should render_template(:index) }
   end
 end
