@@ -12,25 +12,25 @@ AndrewMitchell::Application.routes.draw do
 
 
   ### FRONTEND ###
-  
+
   # Static Pages
   get         '/contact'  => 'static_pages#contact'
-  
+
   # About
   get         '/about'                      => 'about#index'
   get         '/employment-history'         => 'about#employment_history',          :as => 'employment_history'
   get         '/educational-qualifications' => 'about#educational_qualifications',  :as => 'educational_qualifications'
-  
+
   # Comments
   resources   :comments
-  
+
   # Posts
   resources   :posts, :only => [:show, :index] do
     resources   :comments, :except => [:delete]
   end
   get         'posts/category/:category_permalink'  => 'posts#category', :as => 'posts_category'
   get         'posts/tagged/:tag'                   => 'posts#tagged'
-  
+
   # Portfolio
   get       '/portfolio'  => 'portfolio#index'
   # resources :portfolio, :only => [:index] do
@@ -38,7 +38,7 @@ AndrewMitchell::Application.routes.draw do
   # end
   # match 'portfolio/category/:category_permalink' => 'portfolio#category', :as => 'portfolio_category'
   # match 'portfolio/tagged/:tag' => 'portfolio#tagged'
-  
+
   # Photos & Albums
   resources :photoalbums, :only => [:index, :show] do
     resources :pictures, :only => [:show] do
@@ -48,4 +48,10 @@ AndrewMitchell::Application.routes.draw do
   match 'pictures/tagged/:tag' => 'pictures#tagged'
 
   root :to => "posts#index"
+
+  ### ADMIN ###
+  namespace :admin do
+    root :to => "home#index"
+  end
+
 end

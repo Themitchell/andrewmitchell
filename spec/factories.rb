@@ -6,6 +6,14 @@ FactoryGirl.define do
     sequence(:email)          { |n| "test#{n}@example.com" }
   end
 
+  factory :admin, :parent => :user do
+    role                      'admin'
+  end
+
+  factory :superadmin, :parent => :user do
+    role                      'superadmin'
+  end
+
   factory :oauth_user, :parent => :user do
     password                  nil
     password_confirmation     nil

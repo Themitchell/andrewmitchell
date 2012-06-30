@@ -44,18 +44,29 @@ describe User do
 
   describe "is_admin?" do
     it "should return true if user is superadmin" do
-      user = FactoryGirl.build(:user, role: "superadmin")
-      user.is_admin?.should be_true
+      FactoryGirl.build(:user, role: "superadmin").is_admin?.should be_true
     end
 
     it "should return true if user is admin" do
-      user = FactoryGirl.build(:user, role: "admin")
-      user.is_admin?.should be_true
+      FactoryGirl.build(:user, role: "admin").is_admin?.should be_true
     end
 
     it "should return false if user is not admin or a super admin" do
-      user = FactoryGirl.build(:user, role: "member")
-      user.is_admin?.should be_false
+      FactoryGirl.build(:user, role: "member").is_admin?.should be_false
+    end
+  end
+  
+  describe "is_superadmin?" do
+    it "should return true if user is superadmin" do
+      FactoryGirl.build(:user, role: "superadmin").is_superadmin?.should be_true
+    end
+
+    it "should return true if user is admin" do
+      FactoryGirl.build(:user, role: "admin").is_superadmin?.should be_false
+    end
+
+    it "should return false if user is not admin or a super admin" do
+      FactoryGirl.build(:user, role: "member").is_superadmin?.should be_false
     end
   end
 end
