@@ -16,38 +16,18 @@
 require File.expand_path(File.dirname(__FILE__) + '../../support/spec_helper')
 
 describe Post do
-  
-  describe 'validations' do
-    
-    it "should be valid by default" do
-      FactoryGirl.build(:post).should be_valid
-    end
-    
-    context "presence" do
-      it { should     validate_presence_of :title }
-      it { should_not allow_value("").for  :title }
-      it { should     validate_presence_of :body }
-      it { should_not allow_value("").for  :body }
-      it { should     validate_presence_of :author }
-      it { should     validate_presence_of :published_on }
-      it { should_not allow_value("").for  :body }
-    end
-    
-    context "uniqueness" do
-      before :each do
-        FactoryGirl.create(:post)
-      end
-      
-      it { should validate_uniqueness_of :title }
-    end
-  end
-  
-  describe 'associations' do
-    
-    it { should belong_to(:author).class_name('User') }
-    it { should belong_to :category }
-  end
-  
+  before { FactoryGirl.create(:post) }
+  it { should     validate_presence_of :title }
+  it { should_not allow_value("").for  :title }
+  it { should     validate_presence_of :body }
+  it { should_not allow_value("").for  :body }
+  it { should     validate_presence_of :author }
+  it { should     validate_presence_of :published_on }
+  it { should_not allow_value("").for  :body }
+  it { should validate_uniqueness_of :title }
+  it { should belong_to(:author).class_name('User') }
+  it { should belong_to :category }
+
   describe "permalink field" do
     it "should set the permalink based on the title" do
       p = FactoryGirl.create(:post, title: "Test Title")

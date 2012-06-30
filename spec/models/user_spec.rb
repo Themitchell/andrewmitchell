@@ -29,44 +29,25 @@
 require File.expand_path(File.dirname(__FILE__) + '../../support/spec_helper')
 
 describe User do
-  
-  describe 'validations' do
-    
-    it "should be valid by default" do
-      FactoryGirl.build(:user).should be_valid
-    end
-    
-    context "presence" do
-      it { should     validate_presence_of  :username }
-      it { should_not allow_value("").for   :username }
-      it { should     validate_presence_of  :password }
-      it { should_not allow_value("").for   :password }
-    end
-    
-    context "uniqueness" do
-      before :each do
-        FactoryGirl.create(:user)
-      end
-      
-      it { should validate_uniqueness_of :email }
-      it { should validate_uniqueness_of :username }
-    end
-  end
-  
-  describe "associations" do
-    it { should have_many(:authentications).dependent :destroy }
-    it { should have_many(:posts).          dependent :destroy }
-    it { should have_many(:portfolio_items).dependent :destroy }
-    it { should have_many(:pictures).       dependent :destroy }
-    it { should have_many(:comments).       dependent :destroy }
-  end
-  
+  before { FactoryGirl.create(:user) }
+  it { should     validate_presence_of  :username }
+  it { should_not allow_value("").for   :username }
+  it { should     validate_presence_of  :password }
+  it { should_not allow_value("").for   :password }
+  it { should     validate_uniqueness_of :email }
+  it { should     validate_uniqueness_of :username }
+  it { should     have_many(:authentications).dependent :destroy }
+  it { should     have_many(:posts).          dependent :destroy }
+  it { should     have_many(:portfolio_items).dependent :destroy }
+  it { should     have_many(:pictures).       dependent :destroy }
+  it { should     have_many(:comments).       dependent :destroy }
+
   describe "is_admin?" do
     it "should return true if user is superadmin" do
       user = FactoryGirl.build(:user, role: "superadmin")
       user.is_admin?.should be_true
     end
-    
+
     it "should return true if user is admin" do
       user = FactoryGirl.build(:user, role: "admin")
       user.is_admin?.should be_true

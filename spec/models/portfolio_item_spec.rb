@@ -15,38 +15,19 @@
 require File.expand_path(File.dirname(__FILE__) + '../../support/spec_helper')
 
 describe PortfolioItem do
-  
-  describe 'validations' do
-    
-    it "should be valid by default" do
-      FactoryGirl.build(:portfolio_item).should be_valid
-    end
-    
-    context "presence" do
-      it { should     validate_presence_of  :title }
-      it { should_not allow_value("").for   :title }
-      it { should     validate_presence_of  :description }
-      it { should_not allow_value("").for   :description }
-      it { should     validate_presence_of  :author }
-      it { should     validate_presence_of  :published_on }
-      it { should_not allow_value("").for   :published_on }
-    end
-    
-    context "uniqueness" do
-      before :each do
-        FactoryGirl.create(:portfolio_item)
-      end
-      
-      it { should validate_uniqueness_of :title }
-    end
-  end
-  
-  describe 'associations' do
-    it { should belong_to(:author).class_name('User') }
-    it { should have_one(:media_asset) }
-    # it { should belong_to :category }
-  end
-  
+  before { FactoryGirl.create(:portfolio_item) }
+  it { should     validate_presence_of  :title }
+  it { should_not allow_value("").for   :title }
+  it { should     validate_presence_of  :description }
+  it { should_not allow_value("").for   :description }
+  it { should     validate_presence_of  :author }
+  it { should     validate_presence_of  :published_on }
+  it { should_not allow_value("").for   :published_on }
+  it { should     validate_uniqueness_of :title }
+  it { should     belong_to(:author).class_name('User') }
+  it { should     have_one(:media_asset) }
+  # it { should     belong_to :category }
+
   describe "permalink field" do
     it "should set the permalink based on the title" do
       p = FactoryGirl.create(:portfolio_item, title: "Test Title")

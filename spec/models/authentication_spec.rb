@@ -13,28 +13,10 @@
 require File.expand_path(File.dirname(__FILE__) + '../../support/spec_helper')
 
 describe Authentication do
-  
-  describe "validations" do
-    it "should be valid by default" do
-      FactoryGirl.build(:authentication).should be_valid
-    end
-    
-    context "presence" do
-      it { should validate_presence_of :provider }
-      it { should validate_presence_of :uid }
-      it { should validate_presence_of :user_id }
-    end
-    
-    context "uniqueness" do
-      before :each do
-        FactoryGirl.create(:authentication)
-      end
-      
-      it { should validate_uniqueness_of(:uid).scoped_to :provider }
-    end
-  end
-  
-  describe "associations" do
-    it { should belong_to :user }
-  end
+  before { FactoryGirl.create(:authentication) }
+  it { should validate_presence_of :provider }
+  it { should validate_presence_of :uid }
+  it { should validate_presence_of :user_id }
+  it { should belong_to :user }
+  it { should validate_uniqueness_of(:uid).scoped_to :provider }
 end

@@ -14,21 +14,9 @@
 require File.expand_path(File.dirname(__FILE__) + '../../support/spec_helper')
 
 describe Comment do
-  
-  describe 'validations' do
-    it "should be valid by default" do
-      FactoryGirl.build(:comment).should be_valid
-    end
-    
-    context "presence" do
-      it { should     validate_presence_of :body }
-      it { should_not allow_value("").for  :body }
-      it { should     validate_presence_of :author }
-    end
-  end
-  
-  describe 'associations' do
-    it { should belong_to(:author).class_name('User') }
-    it { should belong_to :commentable }
-  end
+  it { should     validate_presence_of :body }
+  it { should_not allow_value("").for  :body }
+  it { should     validate_presence_of :author }
+  it { should     belong_to(:author).class_name('User') }
+  it { should     belong_to :commentable }
 end

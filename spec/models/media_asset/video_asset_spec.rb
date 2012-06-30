@@ -18,22 +18,9 @@
 require File.expand_path(File.dirname(__FILE__) + '../../../support/spec_helper')
 
 describe MediaAsset::VideoAsset do
-  
-  describe 'associations' do
-    it { should belong_to :owner }
-  end
-  
-  describe 'validations' do
-    it "should be valid by default" do
-      @asset = FactoryGirl.build(:video_asset)
-      @asset.should be_valid
-    end
-    
-    context "presence" do
-      it { should validate_presence_of :owner }
-      it { should validate_presence_of :media_id }
-      it { should validate_presence_of :type }
-      it { should validate_presence_of :hosting_location_key }
-    end
-  end
+  it { should belong_to :owner }
+  it { should validate_presence_of :owner }
+  it { should validate_presence_of :media_id }
+  it { should validate_presence_of :type }
+  it { should validate_presence_of :hosting_location_key }
 end

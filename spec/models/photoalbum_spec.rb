@@ -15,29 +15,16 @@
 require File.expand_path(File.dirname(__FILE__) + '../../support/spec_helper')
 
 describe Photoalbum do
+  it { should     validate_presence_of :name }
+  it { should_not allow_value("").for  :name }
+  it { should     validate_presence_of :description }
+  it { should_not allow_value("").for  :description }
+  it { should     validate_presence_of :author }
+  it { should     validate_presence_of :published_on }
+  it { should_not allow_value("").for  :published_on }
+  it { should     belong_to(:author).class_name('User') }
+  it { should     have_many :pictures }
 
-  describe 'validations' do
-
-    it "should be valid by default" do
-      FactoryGirl.build(:photoalbum).should be_valid
-    end
-
-    context "presence" do
-      it { should     validate_presence_of :name }
-      it { should_not allow_value("").for  :name }
-      it { should     validate_presence_of :description }
-      it { should_not allow_value("").for  :description }
-      it { should     validate_presence_of :author }
-      it { should     validate_presence_of :published_on }
-      it { should_not allow_value("").for  :published_on }
-    end
-  end
-
-  describe 'associations' do
-    it { should belong_to(:author).class_name('User') }
-    it { should have_many :pictures }
-  end
-  
   describe ".picture" do
     it "should return the first picture in the set" do
       p = FactoryGirl.create(:photoalbum)
