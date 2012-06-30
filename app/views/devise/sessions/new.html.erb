@@ -1,29 +1,21 @@
 <%= link_to "Back", :back, :class => 'back_link' %>
-<h1>Login</h1>
+<%= header('Login') %>
+
 
 <%= render :partial => 'shared/available_oauth_providers', :locals => { :verb => "login" } %>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "generic_form"}) do |f| %>
-  <div class="row">
-    <%= f.label :login, 'Login (email or username):' %>
-    <%= f.text_field :login %>
-  </div>
+<%= form_for resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form-vertical" } do |f| %>
+  <%= f.label :login, 'Login (email or username):' %>
+  <%= f.text_field :login %>
 
-  <div class="row">
-    <%= f.label :password, 'Password:' %>
-    <%= f.password_field :password %>
-  </div>
+  <%= f.label :password, 'Password:' %>
+  <%= f.password_field :password %>
 
   <% if devise_mapping.rememberable? -%>
-    <div class="row checkbox_row">
-      <%= f.label :remember_me %>
-      <%= f.check_box :remember_me %>
-    </div>
+      <label for="remember_me" class="checkbox"><%= f.check_box :remember_me %> Remember me</label>
   <% end -%>
 
-  <div class="submit_row row">
-    <%= f.submit "Login" %>
-  </div>
+  <%= f.submit "Login" %>
 
 <% end %>
 

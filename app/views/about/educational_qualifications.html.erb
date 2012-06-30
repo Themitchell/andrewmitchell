@@ -1,8 +1,8 @@
 <% if @educational_qualifications.any? %>
   <section name="educational_qualifications" id="educational_qualifications">
     <%= render :partial => 'about_nav' %>
-    <h1>Educational Qualifications</h1>
-    
+    <%= header('Educational Qualifications') %>
+
     <ol class="list">
       <%= render :partial => "educational_qualification", :collection => @educational_qualifications %>
     </ol>

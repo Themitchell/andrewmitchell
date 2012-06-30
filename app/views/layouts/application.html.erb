@@ -1,36 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Blog</title>
   <%= stylesheet_link_tag :application %>
   <%= javascript_include_tag :application %>
   <%= csrf_meta_tag %>
-  
+
   <meta name="viewport" content="initial-scale=1.0; minimum-scale=1.0">
 </head>
 <body>
-<div class="container">
-  <header>
-    <div id="main_logo">Andrew Mitchell :: Online Portfolio</div>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="#">Andrew Mitchell</a>
 
-    <div id="user_info">
-      <%= render :partial => 'shared/login_nav' %>
-      <%= render :partial => 'shared/flash_messages' %>
+        <%
+          render_tabnav :class => "nav" do |n|
+            n.add_tab do |t|
+              t.named "Blog"
+              t.links_to posts_path
+              t.highlights_on :controller => :blog
+            end
+            n.add_tab do |t|
+              t.named "About"
+              t.links_to about_path
+              t.highlights_on :controller => :static_pages, :action => :about
+            end
+            n.add_tab do |t|
+              t.named "Photo Albums"
+              t.links_to photoalbums_path
+              t.highlights_on :controller => :photoalbums
+            end
+            n.add_tab do |t|
+              t.named "Portfolio"
+              t.links_to portfolio_path
+              t.highlights_on :controller => :portfolio
+            end
+            n.add_tab do |t|
+              t.named "Contact"
+              t.links_to contact_path
+              t.highlights_on :controller => :static_pages, :action => :about
+            end
+          end
+        %>
+
+        <% if user_signed_in? %>
+            <ul class="nav pull-right">
+              <li><%= link_to "Welcome #{current_user.username}", edit_user_path(current_user) %></li>
+              <li><%= link_to "Logout", destroy_user_session_path %></li>
+            </ul>
+        <% else %>
+          <ul class="nav pull-right">
+            <li><%= link_to "Register", new_user_registration_path %></li>
+            <li><%= link_to "Login", new_user_session_path %></p></li>
+          </div>
+        <% end %>
+
+        <!-- <div class="pull-right">
+          <%#= render :partial => 'shared/flash_messages' %>
+        </div> -->
+      </div>
     </div>
-  </header>
-  
-  <%= render :partial => 'shared/nav' %>
-  
-  <div id="content">
+  </div>
+
+  <div class="container-fluid">
     <%= yield %>
   </div>
 
-  <footer>
-    <div>
-  	  <p>All content © Andrew Mitchell 2011<p>
-  	  <a href="mailto:themitchell@me.com">themitchell@me.com</a>
-  	</div>
+  <footer class="navbar navbar-fixed-bottom">
+    <div class="navbar-inner">
+      <div class="container">
+        <p>All content © Andrew Mitchell 2011<p>
+        <a href="mailto:themitchell@me.com">themitchell@me.com</a>
+      </div>
+    </div>
   </footer>
-</div>
 </body>
 </html>

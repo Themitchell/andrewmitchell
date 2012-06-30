@@ -1,10 +1,8 @@
 <% if @personal_statement && @personal_statement.body.present? %>
-  <section name="about" id="about">
     <%= render :partial => 'about_nav' %>
-    <h1>About</h1>
-    
+    <%= header('About') %>
+
     <div id="about_me">
-    	<%= @personal_statement.body.html_safe %>
+      <%= @personal_statement.body.html_safe %>
     </div>
-  </section>
 <% end %>
