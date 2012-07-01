@@ -14,11 +14,5 @@ module ApplicationHelper
       photoalbum_picture_path(commentable.photoalbum, commentable)
     end
   end
-
-  def header(header_text)
-    header = content_tag :div, :class => 'page-header' do
-      content_tag :h1, header_text
-    end
-    header
-  end
 end
+
