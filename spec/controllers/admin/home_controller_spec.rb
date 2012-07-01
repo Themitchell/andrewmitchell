@@ -11,35 +11,35 @@ describe Admin::HomeController, '#index' do
       get :index
     end
 
-    it { should redirect_to(new_user_session_path) }
+    it { should redirect_to new_user_session_path }
   end
 
   context "when logged in" do
     before do
-      sign_in(FactoryGirl.create(:user))
+      sign_in FactoryGirl.create(:user)
       get :index
     end
 
-    it { should redirect_to(root_path) }
+    it { should redirect_to root_path }
   end
 
   context 'when logged in as an admin' do
     before do
-      sign_in(FactoryGirl.create(:admin))
+      sign_in FactoryGirl.create(:admin)
       get :index
     end
 
     it { should render_with_layout('admin') }
-    it { should render_template(:index) }
+    it { should render_template :index }
   end
 
   context 'when logged in as an superadmin' do
     before do
-      sign_in(FactoryGirl.create(:superadmin))
+      sign_in FactoryGirl.create(:superadmin)
       get :index
     end
 
     it { should render_with_layout('admin')}
-    it { should render_template(:index) }
+    it { should render_template :index }
   end
 end

@@ -10,22 +10,16 @@ describe Admin::PostsController do
 
   describe '#index' do
     before do
+      @post2 = FactoryGirl.create(:post, :created_at => Time.now)
+      @post3 = FactoryGirl.create(:post, :created_at => 24.hours.ago)
+      @post1 = FactoryGirl.create(:post, :created_at => 24.hours.from_now)
+
       get :index
     end
 
     it { should render_template :index }
+    it { should assign_to(:posts).with([@post1, @post2, @post3]) }
   end
-
-  describe'#show' do
-    before do
-      @post = FactoryGirl.create(:post)
-      get :show, :id => @post.to_param
-    end
-
-    it { should assign_to(:post).with(@post) }
-    it { should render_template :show }
-  end
-
 
   describe '#new' do
     before do
@@ -49,7 +43,7 @@ describe Admin::PostsController do
         @post = Post.last
       end
 
-      it { should redirect_to admin_post_path(@post) }
+      it { should redirect_to post_path(@post) }
       it "should set the author" do
         @post.author.should == @admin
       end
@@ -86,7 +80,7 @@ describe Admin::PostsController do
         @post.reload
       end
 
-      it { should redirect_to admin_post_path(@post) }
+      it { should redirect_to post_path(@post) }
       it "should set the author" do
         @post.author.should == @admin
       end

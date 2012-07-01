@@ -42,7 +42,7 @@ feature "Blog Pages", %q{
     page.should have_content("Apple")
     page.should have_content("Ableton")
   end
-  
+
   scenario "pagination on the posts index" do
     Post.destroy_all
     posts = []
@@ -51,9 +51,9 @@ feature "Blog Pages", %q{
       posts <<  post
     end
     old_post = FactoryGirl.create(:post, published_on: 1.year.ago)
-    
+
     visit posts_path
-    
+
     posts.each do |post|
       page.should have_content(post.title)
     end
