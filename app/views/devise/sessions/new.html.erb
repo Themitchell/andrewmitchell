@@ -1,5 +1,9 @@
-<%= link_to "Back", :back, :class => 'back_link' %>
-<%= header('Login') %>
+<%= bootstrap_page_header :h1 do %>
+  Login
+  <%= bootstrap_sub_header do %>
+    <%= link_to "Back", :back %>
+  <% end %>
+<% end %>
 
 
 <%= render :partial => 'shared/available_oauth_providers', :locals => { :verb => "login" } %>

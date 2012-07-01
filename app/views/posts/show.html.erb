@@ -1,6 +1,11 @@
-<%= link_to "Back", :back, :class => 'back_link' %>
-<h1><%= @post.title %></h1>
-  
+<%= bootstrap_page_header :h1 do %>
+  <%= @post.title %>
+  <%= bootstrap_sub_header do %>
+    <%= link_to "Back", :back, :class => 'back_link' %>
+  <% end %>
+<% end %>
+
+
 <p class="author">Posted by <span><%= @post.author.username %></span> on <span><%= published_on_text(@post) %></span></p>
 <p class="body"><%= raw(@post.body) %></p>
 <% unless @post.tags.empty? %>
@@ -15,6 +20,5 @@
 
 <div class="comments">
   <%= link_to "Add Comment", new_post_comment_path(@post) unless current_user.nil? %>
-  
   <%= render :partial => 'comments/comment', :collection => @post.comments %>
 </div>

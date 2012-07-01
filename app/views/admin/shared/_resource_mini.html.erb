@@ -1,0 +1,13 @@
+<tr>
+  <% display_attributes.each do |attribute_name| %>
+    <td>
+      <% if resource_mini.respond_to?(attribute_name) %>
+        <%= resource_mini.send(attribute_name) %>
+      <% end %>
+    </td>
+  <% end %>
+
+  <td><%= link_to "Show", post_path(resource_mini) %></td>
+  <td><%= link_to "Edit", edit_admin_post_path(resource_mini) %></td>
+  <td><%= button_to "Delete", resource_mini, :method => :delete, :confirm => "Are you sure you want to delete this object?" %></td>
+</tr>

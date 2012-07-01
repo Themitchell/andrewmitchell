@@ -1,23 +1,22 @@
 <nav id="category_nav" class="subnav">
   <ul>
-	  <% if @categories.any? %>
-	    <% cat1 = @categories.shift %>
-	    <li class="no_border"><%= link_to cat1.name, posts_category_path(cat1) %></li>
-		  <% @categories.each do |cat, i| %>
-			    <li><%= link_to cat.name, posts_category_path(cat) %></li>
+    <% if @categories.any? %>
+    <% cat1 = @categories.shift %>
+      <li class="no_border"><%= link_to cat1.name, posts_category_path(cat1) %></li>
+      <% @categories.each do |cat, i| %>
+        <li><%= link_to cat.name, posts_category_path(cat) %></li>
 			<% end %>
 		<% end %>
 	</ul>
 </nav>
-<div class="page-header">
-  <h1>Blog</h1>
-</div>
+
+<%= bootstrap_page_header :h1, "Blog" %>
 
 <% if @posts.empty? %>
 	<p>There are currently no posts.</p>
 <% else %>
   <ol class="list">
-	  <%= render :partial => 'post_mini', :collection => @posts %>
+    <%= render :partial => 'post_mini', :collection => @posts %>
 	</ol>
 <% end %>
 

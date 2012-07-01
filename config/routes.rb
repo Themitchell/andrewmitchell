@@ -51,7 +51,7 @@ AndrewMitchell::Application.routes.draw do
 
   ### ADMIN ###
   namespace :admin do
-    resources :posts
+    resources :posts, :except => [:show]
     root :to => "home#index"
   end
 

@@ -1,12 +1,8 @@
 class Admin::PostsController < Admin::AdminController
-  before_filter :fetch_post,  :only => [:show, :edit, :update, :destroy]
+  before_filter :fetch_post,  :only => [:edit, :update, :destroy]
 
   def index
-    
-  end
-
-  def show
-    
+    @posts = Post.order('created_at DESC').paginate(:page => params[:page], :per_page => ITEMS_PER_PAGE)
   end
 
   def new
@@ -14,12 +10,12 @@ class Admin::PostsController < Admin::AdminController
   end
 
   def create
-    post = Post.new(params[:post])
-    post.author = current_user
+    @post = Post.new(params[:post])
+    @post.author = current_user
 
-    if post.save
+    if @post.save
       flash[:notice] == "Post successfully created."
-      redirect_to :action => 'show', :id => post.to_param
+      redirect_to post_path @post
     else
       flash[:error] == "Post could not be created."
       render :new
@@ -34,7 +30,7 @@ class Admin::PostsController < Admin::AdminController
 
     if @post.update_attributes attributes_hash
       flash[:notice] == "Post successfully updated."
-      redirect_to :action => 'show', :id => @post.to_param
+      redirect_to post_path @post
     else
       flash[:error] == "Post could not be updated."
       render :edit
@@ -54,7 +50,7 @@ class Admin::PostsController < Admin::AdminController
   # protected
 
   def fetch_post
-    @post ||= Post.find_by_permalink! params[:id]
+    @post = Post.find_by_permalink! params[:id]
   end
 
 end

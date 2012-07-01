@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag :application %>
+  <%= javascript_include_tag :application %>
+  <%= csrf_meta_tag %>
+
+  <meta name="viewport" content="initial-scale=1.0; minimum-scale=1.0">
+</head>
+<body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="#">Andrew Mitchell</a>
+
+        <%
+          render_tabnav :class => "nav" do |n|
+            n.add_tab do |t|
+              t.named "Posts"
+              t.links_to admin_posts_path
+              t.highlights_on :controller => :posts
+            end
+          end
+        %>
+
+        <% if user_signed_in? %>
+            <ul class="nav pull-right">
+              <li><%= link_to "Welcome #{current_user.username}", edit_user_path(current_user) %></li>
+              <li><%= link_to "Logout", destroy_user_session_path %></li>
+            </ul>
+        <% else %>
+          <ul class="nav pull-right">
+            <li><%= link_to "Register", new_user_registration_path %></li>
+            <li><%= link_to "Login", new_user_session_path %></p></li>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <%= render :partial => 'shared/flash_messages' %>
+
+  <div class="container-fluid">
+    <%= yield %>
+  </div>
+
+  <footer class="navbar navbar-fixed-bottom">
+    <div class="navbar-inner">
+      <div class="container">
+        <p>All content © Andrew Mitchell 2011<p>
+        <a href="mailto:themitchell@me.com">themitchell@me.com</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

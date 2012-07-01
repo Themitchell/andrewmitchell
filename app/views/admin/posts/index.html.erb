@@ -1,0 +1,23 @@
+<%= bootstrap_page_header :h1 do %>
+  Posts Admin
+  <%= bootstrap_sub_header do %>
+    <%= link_to "New Post", new_admin_post_path %>
+  <% end %>
+<% end %>
+
+<% if @posts.empty? %>
+	<p>There are currently no posts.</p>
+<% else %>
+  <table>
+    <thead>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Created at</th>
+      <th>Published on</th>
+    </thead>
+
+    <%= render :partial => 'admin/shared/resource_mini', :collection => @posts, :locals => { :display_attributes => [:title, :author_id, :created_at, :published_on] } %>
+	</table>
+<% end %>
+
+<%= will_paginate %>
