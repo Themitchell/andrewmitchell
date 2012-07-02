@@ -28,7 +28,7 @@
 
 class User < ActiveRecord::Base
   include PaperclipHelper
-  
+
   # Associations
   has_many        :authentications, :dependent => :destroy
   devise          :database_authenticatable,
@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
                   :validatable,
                   :authentication_keys => [:login]
                   # others are:- :token_authenticatable, :lockable, :timeoutable and :activatable
-  
+
   has_many        :posts,           :foreign_key => 'author_id', :dependent => :destroy
   has_many        :portfolio_items, :foreign_key => 'author_id', :dependent => :destroy
   has_many        :pictures,        :foreign_key => 'author_id', :dependent => :destroy
@@ -53,25 +53,25 @@ class User < ActiveRecord::Base
                   :avatar_content_type,
                   :avatar_file_size
   attr_accessor   :login
-  
+
   # Scopes
   scope :member,      :conditions => {:role => "member"}
   scope :admin,       :conditions => {:role => "admin"}
   scope :superadmin,  :conditions => {:role => "superadmin"}
-  
-  # Paperclip 
+
+  # Paperclip
   has_attached_file :avatar, { :styles => {:avatar => "50x50>"} }.merge(PAPERCLIP_OPTIONS)
 
   validates_attachment_content_type :avatar, :content_type => IMAGE_MIME_TYPES,
                                              :if => :has_avatar?,
                                              :message => 'Avatar should be a jpeg, gif or png.'
-                                             
+
 
   # Validations
   validates :username, :presence => true, :uniqueness => true
   validates :role, :presence => true
-  
-  
+
+
   # Methods
   def is_admin?
     if self.role == "admin" || self.role == "superadmin"
@@ -80,7 +80,7 @@ class User < ActiveRecord::Base
       return false
     end
   end
-  
+
   def is_superadmin?
     if self.role == "superadmin"
       return true
@@ -88,21 +88,21 @@ class User < ActiveRecord::Base
       return false
     end
   end
-  
+
   def oauth_enabled?
     authentications.any?
   end
-  
+
   def apply_omniauth(omniauth)
     authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
   end
-  
+
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     login = conditions.delete(:login)
     where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.strip.downcase }]).first
   end
-  
+
   def password_required?
     ( !oauth_enabled? || !password.blank? ) && super
   end
@@ -119,7 +119,7 @@ protected
     recoverable = find_recoverable_or_initialize_with_errors(reset_password_keys, attributes, :not_found)
     recoverable.send_reset_password_instructions if recoverable.persisted?
     recoverable
-  end 
+  end
 
   def self.find_recoverable_or_initialize_with_errors(required_attributes, attributes, error=:invalid)
     (case_insensitive_keys || []).each { |k| attributes[k].try(:downcase!) }
@@ -131,10 +131,10 @@ protected
       if attributes.has_key?(:login)
         login = attributes.delete(:login)
         record = find_record(login)
-      else  
+      else
         record = where(attributes).first
-      end  
-    end  
+      end
+    end
 
     unless record
       record = new
@@ -143,8 +143,8 @@ protected
         value = attributes[key]
         record.send("#{key}=", value)
         record.errors.add(key, value.present? ? error : :blank)
-      end  
-    end  
+      end
+    end
     record
   end
 

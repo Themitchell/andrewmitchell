@@ -30,9 +30,8 @@ end
 group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'pickle'
   gem 'rspec-rails'
-  gem "shoulda-matchers"
+  gem "shoulda"
   gem 'factory_girl_rails', "~> 3.0"
   gem 'spork'# , '0.9.0.rc9'
   gem 'launchy'

@@ -35,18 +35,18 @@ feature "Admin Posts Pages", %q{
   scenario "no posts" do
     visit admin_posts_path
     current_path.should == admin_posts_path
-    page.should have_content("There are currently no posts.")
+    page.should have_content "There are currently no posts."
   end
 
   scenario "Viewing a post" do
-    post = FactoryGirl.create(:post)
+    post = FactoryGirl.create :post
     visit admin_posts_path
 
     within :xpath, "//table" do    
       within :xpath, "tr[1]" do
-        page.should have_content(post.title)
-        page.should have_content(post.author.login)
-        page.should have_content(post.created_at)
+        page.should have_content post.title
+        page.should have_content post.author.login
+        page.should have_content post.created_at
         # page.should have_content(post.published_on)
 
         click_link "Show"
@@ -66,6 +66,7 @@ feature "Admin Posts Pages", %q{
     click_button "Save"
 
     current_path.should == post_path(Post.find_by_title("My Post"))
+    page.should have_content ""
   end
 
   scenario "Editing a post" do

@@ -1,106 +1,66 @@
 require File.expand_path(File.dirname(__FILE__) + '../../../support/spec_helper')
 
-describe Admin::PostsController do  
-  before do
-    @admin = FactoryGirl.create(:admin)
-    sign_in(@admin)
-  end
-
+describe Admin::PostsController do
+  let(:admin) { FactoryGirl.create(:admin) }
+  before { sign_in(admin) }
   it { should be_a(Admin::AdminController) }
 
   describe '#index' do
-    before do
-      @post2 = FactoryGirl.create(:post, :created_at => Time.now)
-      @post3 = FactoryGirl.create(:post, :created_at => 24.hours.ago)
-      @post1 = FactoryGirl.create(:post, :created_at => 24.hours.from_now)
-
-      get :index
-    end
-
+    let(:post1) { FactoryGirl.create(:post, :created_at => Time.now) }
+    let(:post2) { FactoryGirl.create(:post, :created_at => 24.hours.ago) }
+    let(:post3) { FactoryGirl.create(:post, :created_at => 24.hours.from_now) }
+    before { get :index }
     it { should render_template :index }
-    it { should assign_to(:posts).with([@post1, @post2, @post3]) }
+    it { should assign_to(:posts).with([post3, post1, post2]) }
   end
 
   describe '#new' do
-    before do
-      get :new
-    end
-
+    before { get :new }
     it { should assign_to(:post).with_kind_of(Post) }
     it { should render_template :new }
   end
 
   describe '#create' do
-    before do
-      @category = FactoryGirl.create(:category)
-    end
-
+    let(:category) { FactoryGirl.create(:category) }
     context "with valid params" do
-      before do
-        valid_params = FactoryGirl.attributes_for(:post)
-        valid_params.merge!(:category_id => @category.id)
-        expect { post :create, :post => valid_params }.to change(Post, :count).by(1)
-        @post = Post.last
-      end
-
-      it { should redirect_to post_path(@post) }
-      it "should set the author" do
-        @post.author.should == @admin
-      end
+      before { post :create, :post => FactoryGirl.attributes_for(:post).merge!(:category_id => category.id) }
+      # it { should change(Post.count).by(1) }
+      it { should redirect_to post_path Post.last }
     end
-
     context "with invalid params" do
-      before do
-        post :create, :post => {}
-      end
-
+      before { post :create, :post => {} }
       it { should render_template :new }
     end
   end
 
   describe '#edit' do
-    before do
-      @post = FactoryGirl.create(:post)
-      get :edit, :id => @post.to_param
-    end
-
-    it { should assign_to(:post).with(@post) }
+    let(:post) { FactoryGirl.create(:post) }
+    before { get :edit, :id => post.to_param }
+    it { should assign_to(:post).with(post) }
     it { should render_template :edit }
   end
 
   describe '#update' do
-    before do
-      @post = FactoryGirl.create(:post)
-    end
-
+    let(:expected_post) { FactoryGirl.create(:post) }
     context "with valid params" do
       before do
-        valid_params = { :id => @post.to_param, :post => { :title => 'edited' } }
-        post :update, valid_params
-        @post.reload
+        post :update, :id => expected_post.to_param, :post => { :title => 'edited' }
       end
-
-      it { should redirect_to post_path(@post) }
-      it "should set the author" do
-        @post.author.should == @admin
-      end
+      it { should assign_to(:post).with(expected_post) }
+      it { should redirect_to post_path(expected_post) }
     end
-
     context "with invalid params" do
       before do
-        post :update, :id => @post.to_param, :post => { :title => "" }
+        post :update, :id => expected_post.to_param, :post => { :title => "" }
       end
-
       it { should render_template :edit }
     end
   end
 
   describe '#destroy' do
-    before do
-      @post = FactoryGirl.create(:post)
-      expect { delete :destroy, :id => @post.to_param }.to change(Post, :count).by(-1)
-    end
-
+    let(:deletable_post) { FactoryGirl.create(:post) }
+    before { delete :destroy, :id => deletable_post.to_param }
+    # it { should change "Post.count", :by => -1 }
     it { should redirect_to admin_posts_path }
   end
 end
