@@ -23,12 +23,16 @@ describe Admin::PostsController do
   describe '#create' do
     let(:category) { FactoryGirl.create(:category) }
     context "with valid params" do
-      before { post :create, :post => FactoryGirl.attributes_for(:post).merge!(:category_id => category.id) }
-      # it { should change(Post.count).by(1) }
+      let(:valid_params) { FactoryGirl.attributes_for(:post).merge!(:category_id => category.id) }
+      before { expect { post :create, :post => valid_params }.to change(Post, :count).by(1) }
+      it { should assign_to(:post).with_kind_of(Post) }
+      it "should assign the current user as the author" do
+        assigns(:post).author.should == admin
+      end
       it { should redirect_to post_path Post.last }
     end
     context "with invalid params" do
-      before { post :create, :post => {} }
+      before { expect { post :create, :post => {} }.not_to change(Post, :count) }
       it { should render_template :new }
     end
   end
@@ -41,26 +45,23 @@ describe Admin::PostsController do
   end
 
   describe '#update' do
-    let(:expected_post) { FactoryGirl.create(:post) }
+    let!(:expected_post) { FactoryGirl.create(:post) }
     context "with valid params" do
-      before do
-        post :update, :id => expected_post.to_param, :post => { :title => 'edited' }
-      end
+      before { expect { post :update, :id => expected_post.to_param, :post => FactoryGirl.attributes_for(:post) }.not_to change(Post, :count) }
       it { should assign_to(:post).with(expected_post) }
       it { should redirect_to post_path(expected_post) }
     end
     context "with invalid params" do
-      before do
-        post :update, :id => expected_post.to_param, :post => { :title => "" }
-      end
+      before { expect { post :update, :id => expected_post.to_param, :post => { :title => "" } }.not_to change(Post, :count) }
+      it { should assign_to(:post).with(expected_post) }
       it { should render_template :edit }
     end
   end
 
   describe '#destroy' do
-    let(:deletable_post) { FactoryGirl.create(:post) }
+    let!(:deletable_post) { FactoryGirl.create(:post) }
     before { delete :destroy, :id => deletable_post.to_param }
-    # it { should change "Post.count", :by => -1 }
+    it { should assign_to(:post).with(deletable_post) }
     it { should redirect_to admin_posts_path }
   end
 end

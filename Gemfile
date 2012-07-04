@@ -31,7 +31,7 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'rspec-rails'
-  gem "shoulda"
+  gem "shoulda-matchers"
   gem 'factory_girl_rails', "~> 3.0"
   gem 'spork'# , '0.9.0.rc9'
   gem 'launchy'
