@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by_permalink params[:id]
+    @post = Post.find_by_permalink! params[:id]
   end
 
   def category

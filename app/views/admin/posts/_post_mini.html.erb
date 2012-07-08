@@ -1,0 +1,13 @@
+<tr>
+          <td><%= post_mini.title %></td>
+        <td><%= post_mini.body %></td>
+        <td><%= post_mini.author_id %></td>
+        <td><%= post_mini.published_on %></td>
+        <td><%= post_mini.created_at %></td>
+        <td><%= post_mini.updated_at %></td>
+        <td><%= post_mini.permalink %></td>
+        <td><%= post_mini.category_id %></td>
+    <td><%= link_to "Show", admin_post_path(post_mini) %></td>
+  <td><%= link_to 'Edit', edit_admin_post_path(post_mini) %></td>
+  <td><%= link_to 'Delete', admin_post_path(post_mini), :confirm => "Are you sure you want to delete this Post?", :method => :delete %></td>
+</tr>

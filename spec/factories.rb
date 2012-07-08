@@ -1,4 +1,4 @@
-FactoryGirl.define do 
+FactoryGirl.define do
   factory :user do
     sequence(:username)       { |n| "test_user_#{n}" }
     password                  'password'
@@ -8,10 +8,6 @@ FactoryGirl.define do
 
   factory :admin, :parent => :user do
     role                      'admin'
-  end
-
-  factory :superadmin, :parent => :user do
-    role                      'superadmin'
   end
 
   factory :oauth_user, :parent => :user do

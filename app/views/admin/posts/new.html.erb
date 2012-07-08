@@ -1,22 +1,8 @@
 <%= bootstrap_page_header :h1 do %>
-  New Post
+  Create Post
   <%= bootstrap_sub_header do %>
     <%= link_to "Cancel", :back %>
   <% end %>
 <% end %>
 
-<%= form_for [:admin, @post], :html => { :class => "form-vertical" } do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.label :body %>
-  <%= f.text_area :body %>
-
-  <%= f.label :category_id %>
-  <%= f.select :category_id, options_from_collection_for_select(@categories, 'id', 'name') %>
-
-  <%= f.label :published_on %>
-  <%= f.text_field :published_on %>
-
-  <%= f.submit "Save" %>
-<% end %>
+<%= render :partial => 'form' %>

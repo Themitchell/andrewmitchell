@@ -1,10 +1,10 @@
 require File.expand_path(File.dirname(__FILE__) + '../../../support/spec_helper')
 
-describe Admin::HomeController do
+describe Admin::DashboardController do
   it { controller.should be_a Admin::AdminController }
 end
 
-describe Admin::HomeController, '#index' do
+describe Admin::DashboardController, '#index' do
 
   context "with no user" do
     before do
@@ -30,16 +30,6 @@ describe Admin::HomeController, '#index' do
     end
 
     it { should render_with_layout('admin') }
-    it { should render_template :index }
-  end
-
-  context 'when logged in as an superadmin' do
-    before do
-      sign_in FactoryGirl.create(:superadmin)
-      get :index
-    end
-
-    it { should render_with_layout('admin')}
     it { should render_template :index }
   end
 end

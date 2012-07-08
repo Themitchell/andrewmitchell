@@ -1,7 +1,7 @@
 AndrewMitchell::Application.routes.draw do
+  namespace :admin do resources :posts end
 
-  get         "portfolio/index"
-  get         "portfolio/show"
+  namespace :admin do root :to => 'dashboard#index' end
 
   post        '/auth/:provider/callback'              => 'authentications#create'
   get         '/profile/connected-providers'          => 'authentications#index', :as => 'authentications'
@@ -32,8 +32,8 @@ AndrewMitchell::Application.routes.draw do
   get         'posts/tagged/:tag'                   => 'posts#tagged'
 
   # Portfolio
-  get       '/portfolio'  => 'portfolio#index'
-  # resources :portfolio, :only => [:index] do
+  get '/portfolio' => 'portfolio#index'
+  get '/portfolio/:id' => 'portfolio#show'
   #   resources :comments, :except => [:delete]
   # end
   # match 'portfolio/category/:category_permalink' => 'portfolio#category', :as => 'portfolio_category'
@@ -48,11 +48,4 @@ AndrewMitchell::Application.routes.draw do
   match 'pictures/tagged/:tag' => 'pictures#tagged'
 
   root :to => "posts#index"
-
-  ### ADMIN ###
-  namespace :admin do
-    resources :posts, :except => [:show]
-    root :to => "home#index"
-  end
-
 end

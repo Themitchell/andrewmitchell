@@ -6,14 +6,6 @@ class Admin::AdminController < ApplicationController
 
   ITEMS_PER_PAGE = 20
 
-  def require_superadmin
-    unless current_user.is_superadmin?
-      flash[:notice] = "You must be a superadmin to access this page"
-      redirect_to root_path
-      return false
-    end
-  end
-
   def require_admin
     if current_user
       unless current_user.is_admin? || current_user.is_superadmin?

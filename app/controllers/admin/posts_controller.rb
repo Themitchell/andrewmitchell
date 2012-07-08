@@ -1,24 +1,25 @@
 class Admin::PostsController < Admin::AdminController
-  before_filter :fetch_post,  :only => [:edit, :update, :destroy]
+
+  before_filter :fetch_post,  :only => [:show, :edit, :update, :destroy]
 
   def index
     @posts = Post.order('created_at DESC').paginate(:page => params[:page], :per_page => ITEMS_PER_PAGE)
   end
 
+  def show
+  end
+
   def new
-    @post = Post.new(params[:post])
+    @post = Post.new
   end
 
   def create
     @post = Post.new(params[:post])
     @post.author = current_user
-
     if @post.save
-      flash[:notice] == "Post successfully created."
-      redirect_to post_path @post
+      redirect_to admin_post_path(@post), :notice => "Successfully created post."
     else
-      flash[:error] == "Post could not be created."
-      render :new
+      render :new, :error => "Could not create post. Check the errors and try again!"
     end
   end
 
@@ -26,31 +27,26 @@ class Admin::PostsController < Admin::AdminController
   end
 
   def update
-    attributes_hash = params[:post].merge(:author_id => current_user.id)
-
-    if @post.update_attributes attributes_hash
-      flash[:notice] == "Post successfully updated."
-      redirect_to post_path @post
+    @post.author = current_user
+    if @post.update_attributes(params[:post])
+      redirect_to admin_post_path(@post), :notice => "Successfully updated post."
     else
-      flash[:error] == "Post could not be updated."
-      render :edit
+      render :edit, :error => "Could not update post. Check the errors and try again!"
     end
   end
 
-
   def destroy
     if @post.destroy
-      flash[:notice] == "Post successfully deleted."
+      flash[:notice] == "Successfully deleted post."
     else
-      flash[:error] == "Post could not be deleted."
+      flash[:error] == "Could not delete post."
     end
     redirect_to admin_posts_path
   end
 
-  # protected
+protected
 
   def fetch_post
     @post = Post.find_by_permalink! params[:id]
   end
-
 end

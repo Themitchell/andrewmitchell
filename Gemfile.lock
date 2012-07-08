@@ -1,3 +1,9 @@
+PATH
+  remote: ../basic_admin
+  specs:
+    basic_admin (0.0.1)
+      rails (~> 3.2.3)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -247,6 +253,7 @@ DEPENDENCIES
   annotate
   asset_sync
   aws-s3
+  basic_admin!
   capybara
   ckeditor
   coffee-rails (~> 3.2.1)
