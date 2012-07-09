@@ -5,25 +5,41 @@
   <% end %>
 <% end %>
 
-
 <ol>
-  
-    <li><strong>id:</strong> <%= @post.id %></li>
-  
-    <li><strong>title:</strong> <%= @post.title %></li>
-  
-    <li><strong>body:</strong> <%= @post.body %></li>
-  
-    <li><strong>author_id:</strong> <%= @post.author_id %></li>
-  
-    <li><strong>published_on:</strong> <%= @post.published_on %></li>
-  
-    <li><strong>created_at:</strong> <%= @post.created_at %></li>
-  
-    <li><strong>updated_at:</strong> <%= @post.updated_at %></li>
-  
-    <li><strong>permalink:</strong> <%= @post.permalink %></li>
-  
-    <li><strong>category_id:</strong> <%= @post.category_id %></li>
-  
+  <li>
+    <strong>Id:</strong>
+    <%= @post.display_name %>
+  </li>
+  <li>
+    <strong>Author:</strong>
+    <%= @post.display_name %>
+  </li>
+  <li>
+    <strong>Created at:</strong>
+    <%= @post.display_name %>
+  </li>
+  <li>
+    <strong>Updated at:</strong>
+    <%= @post.display_name %>
+  </li>
+  <li>
+    <strong>Permalink:</strong>
+    <%= @post.display_name %>
+  </li>
+  <li>
+    <strong>Title:</strong>
+    <%= @post.title %>
+  </li>
+  <li>
+    <strong>Body:</strong>
+    <%= @post.body %>
+  </li>
+  <li>
+    <strong>Published on:</strong>
+    <%= @post.published_on %>
+  </li>
+  <li>
+    <strong>Category:</strong>
+    <%= @post.category.display_name %>
+  </li>
 </ol>

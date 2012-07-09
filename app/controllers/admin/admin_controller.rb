@@ -1,7 +1,6 @@
 class Admin::AdminController < ApplicationController
   layout 'admin'
 
-  before_filter :authenticate_user!
   before_filter :require_admin
 
   ITEMS_PER_PAGE = 20

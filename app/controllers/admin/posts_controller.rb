@@ -16,6 +16,7 @@ class Admin::PostsController < Admin::AdminController
   def create
     @post = Post.new(params[:post])
     @post.author = current_user
+
     if @post.save
       redirect_to admin_post_path(@post), :notice => "Successfully created post."
     else

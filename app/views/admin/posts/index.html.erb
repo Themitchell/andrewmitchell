@@ -10,16 +10,16 @@
 <% else %>
   <table>
     <thead>
-              <th>id</th>
-              <th>title</th>
-              <th>body</th>
-              <th>author_id</th>
-              <th>published_on</th>
-              <th>created_at</th>
-              <th>updated_at</th>
-              <th>permalink</th>
-              <th>category_id</th>
-          </thead>
+      <th>Id</th>
+      <th>Author</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th>Permalink</th>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Published on</th>
+      <th>Category</th>
+    </thead>
 
     <%= render :partial => 'post_mini', :collection => @posts %>
   </table>

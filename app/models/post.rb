@@ -39,4 +39,14 @@ class Post < ActiveRecord::Base
   def to_param
     permalink
   end
+
+  def display_name
+    if respond_to?(:title)
+      title
+    elsif respond_to?(:name)
+      name
+    else
+      to_param.to_s
+    end
+  end
 end

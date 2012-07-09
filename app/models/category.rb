@@ -11,13 +11,15 @@
 #
 
 class Category < ActiveRecord::Base
+  include Displayable
+
   belongs_to :author, :class_name => "User"
   has_permalink :name
-  
+
   # Validations
   validates :name, :presence => true, :uniqueness => true
   validates :author, :presence => true
-  
+
   def to_param
     permalink
   end

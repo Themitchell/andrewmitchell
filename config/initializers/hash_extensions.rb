@@ -1,5 +1,4 @@
 class Hash
-
   def merge_with_string_concat(hash)
     result = self.merge(hash)
     hash.each_pair do |key, value|

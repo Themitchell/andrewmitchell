@@ -18,6 +18,7 @@
 .rvmrc
 .rbenv*
 
+.DS_Store
 .sass-cache
 .bundle
 db/*.sqlite3

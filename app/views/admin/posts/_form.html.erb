@@ -1,18 +1,17 @@
 <%= form_for [:admin, @post], :html => { :class => "form-vertical" } do |f| %>
-          
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-      
-    <%= f.label :body %>
-    <%= f.text_field :body %>
-      
-    <%= f.label :author_id %>
-    <%= f.text_field :author_id %>
-      
-    <%= f.label :published_on %>
-    <%= f.text_field :published_on %>
-                  
-    <%= f.label :category_id %>
-    <%= f.text_field :category_id %>
-    <%= f.submit "Save" %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+  <%= f.label :published_on %>
+  <%= f.text_field :published_on %>
+
+
+
+  <%= f.label :category_id %>
+  <%= f.select :category_id, options_from_collection_for_select(@categories, 'id', 'display_name') %>
+
+
+  <%= f.submit "Save" %>
 <% end %>
