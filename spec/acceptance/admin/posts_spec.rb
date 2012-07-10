@@ -91,7 +91,7 @@ feature "Admin Posts Pages", %q{
     posts = []
     20.times do |n|
       post = FactoryGirl.create :post, :created_at => 30.days.ago+n.days
-      posts <<  post
+      posts << post
     end
     old_post = FactoryGirl.create :post, :created_at => 1.year.ago
 

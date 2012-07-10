@@ -14,6 +14,7 @@
 #
 
 class Post < ActiveRecord::Base
+  include Displayable
 
   # Attributes
   attr_accessible :title, :body, :published_on, :category_id, :author_id
@@ -38,15 +39,5 @@ class Post < ActiveRecord::Base
 
   def to_param
     permalink
-  end
-
-  def display_name
-    if respond_to?(:title)
-      title
-    elsif respond_to?(:name)
-      name
-    else
-      to_param.to_s
-    end
   end
 end

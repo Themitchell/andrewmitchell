@@ -1,0 +1,11 @@
+<tr>
+  <td><%= category_mini.id %></td>
+  <td><%= category_mini.author_id %></td>
+  <td><%= category_mini.permalink %></td>
+  <td><%= category_mini.created_at %></td>
+  <td><%= category_mini.updated_at %></td>
+  <td><%= category_mini.name %></td>
+  <td><%= link_to "Show", admin_category_path(category_mini) %></td>
+  <td><%= link_to 'Edit', edit_admin_category_path(category_mini) %></td>
+  <td><%= link_to 'Delete', admin_category_path(category_mini), :confirm => "Are you sure you want to delete this Category?", :method => :delete %></td>
+</tr>

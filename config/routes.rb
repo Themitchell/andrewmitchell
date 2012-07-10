@@ -1,4 +1,6 @@
 AndrewMitchell::Application.routes.draw do
+  namespace :admin do resources :categories end
+
   namespace :admin do resources :posts end
 
   namespace :admin do root :to => 'dashboard#index' end

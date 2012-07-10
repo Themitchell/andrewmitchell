@@ -13,6 +13,10 @@
 class Category < ActiveRecord::Base
   include Displayable
 
+  # Attributes
+  attr_accessible :name
+
+
   belongs_to :author, :class_name => "User"
   has_permalink :name
 

@@ -1,0 +1,25 @@
+<%= bootstrap_page_header :h1 do %>
+  Categories Admin
+  <%= bootstrap_sub_header do %>
+    <%= link_to "New Category", new_admin_category_path %>
+  <% end %>
+<% end %>
+
+<% if @categories.empty? %>
+  <p>There are currently no categories.</p>
+<% else %>
+  <table>
+    <thead>
+      <th>Id</th>
+      <th>Author</th>
+      <th>Permalink</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th>Name</th>
+    </thead>
+
+    <%= render :partial => 'category_mini', :collection => @categories %>
+  </table>
+<% end %>
+
+<%= will_paginate %>
