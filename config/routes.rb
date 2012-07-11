@@ -1,4 +1,8 @@
 AndrewMitchell::Application.routes.draw do
+  namespace :admin do resources :employment_history_items end
+
+  namespace :admin do resources :educational_qualifications end
+
   namespace :admin do resources :categories end
 
   namespace :admin do resources :posts end

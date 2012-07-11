@@ -14,7 +14,11 @@
 #
 
 class EmploymentHistoryItem < ActiveRecord::Base
-  
+  include Displayable
+
+  # Attributes
+  attr_accessible :company_name, :company_role, :role_description, :date_from, :date_to, :location
+
   validates :company_name,  :presence => true
   validates :company_role,  :presence => true
   validates :date_from,     :presence => true

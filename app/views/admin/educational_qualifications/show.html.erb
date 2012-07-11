@@ -1,0 +1,41 @@
+<%= bootstrap_page_header :h1 do %>
+  Educational qualifications Admin
+  <%= bootstrap_sub_header do %>
+    <%= link_to "Back", :back %>
+  <% end %>
+<% end %>
+
+<ol>
+  <li>
+    <strong>Id:</strong>
+    <%= @educational_qualification.display_name %>
+  </li>
+  <li>
+    <strong>Created at:</strong>
+    <%= @educational_qualification.display_name %>
+  </li>
+  <li>
+    <strong>Updated at:</strong>
+    <%= @educational_qualification.display_name %>
+  </li>
+  <li>
+    <strong>Name:</strong>
+    <%= @educational_qualification.name %>
+  </li>
+  <li>
+    <strong>Institution:</strong>
+    <%= @educational_qualification.institution %>
+  </li>
+  <li>
+    <strong>Grade:</strong>
+    <%= @educational_qualification.grade %>
+  </li>
+  <li>
+    <strong>Date from:</strong>
+    <%= @educational_qualification.date_from %>
+  </li>
+  <li>
+    <strong>Date to:</strong>
+    <%= @educational_qualification.date_to %>
+  </li>
+</ol>

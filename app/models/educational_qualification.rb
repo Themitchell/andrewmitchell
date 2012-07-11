@@ -13,7 +13,11 @@
 #
 
 class EducationalQualification < ActiveRecord::Base
-  
+  include Displayable
+
+  # Attributes
+  attr_accessible :name, :grade, :institution, :date_from, :date_to
+
   validates :name,        :presence => true
   validates :institution, :presence => true
   validates :date_from,   :presence => true

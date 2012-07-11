@@ -1,0 +1,27 @@
+<%= bootstrap_page_header :h1 do %>
+  Educational qualifications Admin
+  <%= bootstrap_sub_header do %>
+    <%= link_to "New Educational qualification", new_admin_educational_qualification_path %>
+  <% end %>
+<% end %>
+
+<% if @educational_qualifications.empty? %>
+  <p>There are currently no educational qualifications.</p>
+<% else %>
+  <table>
+    <thead>
+      <th>Id</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th>Name</th>
+      <th>Institution</th>
+      <th>Grade</th>
+      <th>Date from</th>
+      <th>Date to</th>
+    </thead>
+
+    <%= render :partial => 'educational_qualification_mini', :collection => @educational_qualifications %>
+  </table>
+<% end %>
+
+<%= will_paginate %>

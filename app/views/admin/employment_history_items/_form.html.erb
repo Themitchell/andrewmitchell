@@ -1,0 +1,20 @@
+<%= form_for [:admin, @employment_history_item], :html => { :class => "form-vertical" } do |f| %>
+
+  <%= f.label :company_name %>
+  <%= f.text_field :company_name %>
+  <%= f.label :company_role %>
+  <%= f.text_field :company_role %>
+  <%= f.label :role_description %>
+  <%= f.text_field :role_description %>
+  <%= f.label :date_from %>
+  <%= f.text_field :date_from %>
+  <%= f.label :date_to %>
+  <%= f.text_field :date_to %>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+
+
+
+
+  <%= f.submit "Save" %>
+<% end %>

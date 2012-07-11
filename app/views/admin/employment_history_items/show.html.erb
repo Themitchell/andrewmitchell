@@ -1,0 +1,45 @@
+<%= bootstrap_page_header :h1 do %>
+  Employment history items Admin
+  <%= bootstrap_sub_header do %>
+    <%= link_to "Back", :back %>
+  <% end %>
+<% end %>
+
+<ol>
+  <li>
+    <strong>Id:</strong>
+    <%= @employment_history_item.display_name %>
+  </li>
+  <li>
+    <strong>Created at:</strong>
+    <%= @employment_history_item.display_name %>
+  </li>
+  <li>
+    <strong>Updated at:</strong>
+    <%= @employment_history_item.display_name %>
+  </li>
+  <li>
+    <strong>Company name:</strong>
+    <%= @employment_history_item.company_name %>
+  </li>
+  <li>
+    <strong>Company role:</strong>
+    <%= @employment_history_item.company_role %>
+  </li>
+  <li>
+    <strong>Role description:</strong>
+    <%= @employment_history_item.role_description %>
+  </li>
+  <li>
+    <strong>Date from:</strong>
+    <%= @employment_history_item.date_from %>
+  </li>
+  <li>
+    <strong>Date to:</strong>
+    <%= @employment_history_item.date_to %>
+  </li>
+  <li>
+    <strong>Location:</strong>
+    <%= @employment_history_item.location %>
+  </li>
+</ol>

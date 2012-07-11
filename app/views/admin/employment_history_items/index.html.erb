@@ -1,0 +1,28 @@
+<%= bootstrap_page_header :h1 do %>
+  Employment history items Admin
+  <%= bootstrap_sub_header do %>
+    <%= link_to "New Employment history item", new_admin_employment_history_item_path %>
+  <% end %>
+<% end %>
+
+<% if @employment_history_items.empty? %>
+  <p>There are currently no employment history items.</p>
+<% else %>
+  <table>
+    <thead>
+      <th>Id</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th>Company name</th>
+      <th>Company role</th>
+      <th>Role description</th>
+      <th>Date from</th>
+      <th>Date to</th>
+      <th>Location</th>
+    </thead>
+
+    <%= render :partial => 'employment_history_item_mini', :collection => @employment_history_items %>
+  </table>
+<% end %>
+
+<%= will_paginate %>

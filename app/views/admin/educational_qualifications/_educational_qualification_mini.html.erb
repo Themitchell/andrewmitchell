@@ -1,0 +1,13 @@
+<tr>
+  <td><%= educational_qualification_mini.id %></td>
+  <td><%= educational_qualification_mini.created_at %></td>
+  <td><%= educational_qualification_mini.updated_at %></td>
+  <td><%= educational_qualification_mini.name %></td>
+  <td><%= educational_qualification_mini.institution %></td>
+  <td><%= educational_qualification_mini.grade %></td>
+  <td><%= educational_qualification_mini.date_from %></td>
+  <td><%= educational_qualification_mini.date_to %></td>
+  <td><%= link_to "Show", admin_educational_qualification_path(educational_qualification_mini) %></td>
+  <td><%= link_to 'Edit', edit_admin_educational_qualification_path(educational_qualification_mini) %></td>
+  <td><%= link_to 'Delete', admin_educational_qualification_path(educational_qualification_mini), :confirm => "Are you sure you want to delete this Educational qualification?", :method => :delete %></td>
+</tr>

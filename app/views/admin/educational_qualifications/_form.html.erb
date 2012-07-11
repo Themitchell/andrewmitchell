@@ -1,0 +1,18 @@
+<%= form_for [:admin, @educational_qualification], :html => { :class => "form-vertical" } do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :institution %>
+  <%= f.text_field :institution %>
+  <%= f.label :grade %>
+  <%= f.text_field :grade %>
+  <%= f.label :date_from %>
+  <%= f.text_field :date_from %>
+  <%= f.label :date_to %>
+  <%= f.text_field :date_to %>
+
+
+
+
+  <%= f.submit "Save" %>
+<% end %>
