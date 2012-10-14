@@ -15,7 +15,7 @@
 <% if @posts.empty? %>
 	<p>There are currently no posts.</p>
 <% else %>
-  <ol class="list">
+  <ol id="posts" class="list row-fluid">
     <%= render :partial => 'post_mini', :collection => @posts %>
 	</ol>
 <% end %>

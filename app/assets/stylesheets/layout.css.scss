@@ -1,0 +1,38 @@
+@media (min-width: 1200px) {
+  .container {
+    width:              960px;
+    margin-left:        auto;
+    margin-right:       auto;
+    *zoom:              1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html aside {
+    display:            none;
+    background-color:   black;
+  }
+}
+
+nav#main {
+  text-align:           center;
+
+  li {
+    display:              inline-block;
+    width:                25%;
+  }
+}
+
+#page_content {
+  float:                left;
+  width:                75%;
+}
+
+aside {
+  float:                left;
+  width:                25%;
+}
+
+footer {
+  text-align:           center;
+}

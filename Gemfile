@@ -14,7 +14,6 @@ gem 'jquery-rails'
 gem 'asset_sync'
 gem 'aws-s3'
 gem 'tabnav'
-gem 'twitter-bootstrap-rails'
 gem 'basic_admin', :path => '../basic_admin'
 
 group :production, :staging do
@@ -22,6 +21,7 @@ group :production, :staging do
 end
 
 group :assets do
+  gem "sass", "~> 3.2.0.alpha.104"
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
