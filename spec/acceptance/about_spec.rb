@@ -35,7 +35,7 @@ feature "About Page", %q{
         page.should have_css "h2", :text => "Unboxed"
         page.should have_css "h2 span.company_location", :text => @eh_item_1.location
         page.should have_css "h3.role", :text => @eh_item_1.company_role
-        page.should have_css "div.role_description", :text => @eh_item_1.role_description
+        page.should have_css "p.role_description", :text => @eh_item_1.role_description
         within "p.time_period" do
           page.should have_css "span.date_from", :text => @eh_item_1.date_from.strftime("%B %Y")
           page.should have_css "span.date_to", :text => "ongoing"

@@ -2,7 +2,7 @@
   <nav id="category_nav" class="subnav">
     <h3>Categories:</h3>
     <ul>
-      <% @categories.each do |cat, i| %>
+      <% @categories.each do |cat| %>
         <li><%= link_to cat.name, posts_category_path(cat) %></li>
       <% end %>
     </ul>

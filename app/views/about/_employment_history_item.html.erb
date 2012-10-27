@@ -7,5 +7,5 @@
   </h2>
   <h3 class="role"><%= employment_history_item.company_role %></h3>
   <p class="time_period">From <span class="date_from"><%= employment_history_item.date_from.strftime("%B %Y") %></span> to <span class="date_to"><%= employment_history_item.date_to.present? ? employment_history_item.date_to.strftime("%B %Y") : 'ongoing' %></span></p>
-  <div class="role_description"><%= employment_history_item.role_description %></div>
+  <p class="role_description"><%= employment_history_item.role_description %></p>
 </li>
