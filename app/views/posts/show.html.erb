@@ -1,3 +1,7 @@
+<% content_for :aside do %>
+  <%= render 'shared/nav_category' %>
+<% end %>
+
 <%= bootstrap_page_header :h1 do %>
   <%= @post.title %>
   <%= bootstrap_sub_header do %>

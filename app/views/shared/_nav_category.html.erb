@@ -2,8 +2,6 @@
   <nav id="category_nav" class="subnav">
     <h3>Categories:</h3>
     <ul>
-      <% cat1 = @categories.shift %>
-      <li class="no_border"><%= link_to cat1.name, posts_category_path(cat1) %></li>
       <% @categories.each do |cat, i| %>
         <li><%= link_to cat.name, posts_category_path(cat) %></li>
       <% end %>
