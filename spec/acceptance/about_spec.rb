@@ -11,9 +11,15 @@ feature "About Page", %q{
     
     visit about_path
     
-    within :xpath, "//div[@id='about_me']" do      
-      page.should have_xpath( 'p', :text => 'some bunch  of text here')
+    within "section#about_me" do      
+      page.should have_css 'p', :text => 'some bunch  of text here'
     end
+  end
+
+  scenario "viewing the about page with some nil values" do
+    visit about_path
+    page.status_code.should == 200
+    page.should_not have_css "section#about_me"
   end
   
   scenario "viewing my employment history" do
@@ -65,20 +71,5 @@ feature "About Page", %q{
       page.should have_xpath("li[3]/h2", :text => @eq3.name)
       page.should have_xpath("li[4]/h2", :text => @eq4.name)
     end
-  end
-  
-  scenario "viewing the about page with some nil values" do
-    
-    visit about_path
-    page.status_code.should == 200
-    page.should_not have_css "section#personal_statement"
-    
-    visit employment_history_path
-    page.status_code.should == 200
-    page.should_not have_css "section#employment_history"
-    
-    visit educational_qualifications_path
-    page.status_code.should == 200
-    page.should_not have_css "section#educational_qualifications"
   end
 end

@@ -2,10 +2,9 @@
   <%= render :partial => 'about_nav' %>
 <% end %>
 
-<h1>About Me</h1>
-
 <% if @personal_statement && @personal_statement.body.present? %>
-    <div id="about_me">
+    <section id="about_me">
+      <h1>About Me</h1>
       <%= @personal_statement.body.html_safe %>
-    </div>
+    </section>
 <% end %>
