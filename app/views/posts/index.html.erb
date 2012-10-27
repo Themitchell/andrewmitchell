@@ -1,14 +1,6 @@
-<nav id="category_nav" class="subnav">
-  <ul>
-    <% if @categories.any? %>
-    <% cat1 = @categories.shift %>
-      <li class="no_border"><%= link_to cat1.name, posts_category_path(cat1) %></li>
-      <% @categories.each do |cat, i| %>
-        <li><%= link_to cat.name, posts_category_path(cat) %></li>
-			<% end %>
-		<% end %>
-	</ul>
-</nav>
+<% content_for :aside do %>
+  <%= render 'shared/category_nav' %>
+<% end %>
 
 <%= bootstrap_page_header :h1, "Blog" %>
 

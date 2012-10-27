@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Blog</title>
+  <title>TheMitchell</title>
+
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag :application, :media => 'all' %>
   <%= javascript_include_tag :application %>
   <%= csrf_meta_tag %>
@@ -11,36 +13,36 @@
 <body>
   <header>
     <div class="container">
-        <h1>TheMitchell</h1>
+        <div id='branding'><span>The</span>Mitchell</p>
     </div>
   </header>
 
-<!--   <nav id="main">
+  <nav id="main-nav">
     <%
-      # render_tabnav :class => "container" do |n|
-      #   n.add_tab do |t|
-      #     t.named "Blog"
-      #     t.links_to posts_path
-      #     t.highlights_on :controller => :blog
-      #   end
-      #   # n.add_tab do |t|
-      #   #   t.named "About"
-      #   #   t.links_to about_path
-      #   #   t.highlights_on :controller => :static_pages, :action => :about
-      #   # end
-      #   # n.add_tab do |t|
-      #   #   t.named "Photo Albums"
-      #   #   t.links_to photoalbums_path
-      #   #   t.highlights_on :controller => :photoalbums
-      #   # end
-      #   # n.add_tab do |t|
-      #   #   t.named "Portfolio"
-      #   #   t.links_to portfolio_path
-      #   #   t.highlights_on :controller => :portfolio
-      #   # end
-      # end
+      render_tabnav :class => "container" do |n|
+        n.add_tab do |t|
+          t.named "Blog"
+          t.links_to posts_path
+          t.highlights_on :controller => :blog
+        end
+        # n.add_tab do |t|
+        #   t.named "About"
+        #   t.links_to about_path
+        #   t.highlights_on :controller => :static_pages, :action => :about
+        # end
+        # n.add_tab do |t|
+        #   t.named "Photo Albums"
+        #   t.links_to photoalbums_path
+        #   t.highlights_on :controller => :photoalbums
+        # end
+        # n.add_tab do |t|
+        #   t.named "Portfolio"
+        #   t.links_to portfolio_path
+        #   t.highlights_on :controller => :portfolio
+        # end
+      end
     %>
-  </nav> -->
+  </nav>
 <!--
         <% if user_signed_in? %>
             <ul class="nav pull-right">
@@ -58,20 +60,25 @@
           <%#= render :partial => 'shared/flash_messages' %>
         </div> -->
 
-  <div class="container">
-    <div id="page_content">
-      <%= yield %>
-    </div>
+  <div id="main">
+    <div class="container">
+      <div id="page-content">
+        <%= yield %>
+      </div>
 
-    <aside>
-      <p>Twiter Stuff etc</p>
-    </aside>
+      <aside>
+        <%= yield :aside %>
+        <p>Twiter Stuff etc</p>
+      </aside>
+    </div>
   </div>
 
   <footer>
     <div class="container">
-      <p>All content © Andrew Mitchell 2011<p>
-      <a href="mailto:themitchell@me.com">themitchell@me.com</a>
+      <p>
+        All content © Andrew Mitchell 2011 |
+        <a href="mailto:themitchell@me.com">themitchell@me.com</a>
+      </p>
     </div>
   </footer>
 </body>

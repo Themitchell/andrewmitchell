@@ -1,0 +1,69 @@
+@import 'mixins';
+
+header, #main-nav {
+  position:                   absolute;
+  left:                       0;
+  width:                      100%;
+}
+
+header {
+  top:                        0;
+
+  .container {
+    height:                   $header-height;
+
+    #branding {
+      margin:                 0 $grid-gutter-width/2;
+
+      color:                  white;
+      font-size:              1.4em;
+      font-family:            $brand-font;
+      font-weight:            $font-weight-normal;
+      line-height:            $header-height;
+
+      span {
+        font-weight:          $font-weight-light;
+        color:                $brand-color;
+      }
+    }
+  }
+}
+
+#main-nav {
+  @include background_image("common/decorative_border.png");
+  @include background_data("common/decorative_border.png");
+  @include background_size(100% $splitter-height);
+
+  background-position:        bottom center;
+  background-repeat:          no-repeat;
+  padding-bottom:             $splitter-height + 10px;
+
+  top:                        $header-height;
+
+  .container {
+    height:                   $main-nav-height;
+    
+    li {
+      display:                inline-block;
+      margin:                 0 $grid-gutter-width/2;
+      
+      font-family:            $brand-font;
+      font-weight:            $font-weight-book;
+      line-height:            $main-nav-height;
+    }
+  }
+}
+
+footer {
+  bottom:                     0;
+  clear:                      both;
+
+  .container {
+    height:                   $footer-height;
+
+    font-family:              $brand-font;
+    line-height:              $footer-height;
+
+    text-align:               center;
+  }
+}

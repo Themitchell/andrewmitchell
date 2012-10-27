@@ -1,38 +1,88 @@
-@media (min-width: 1200px) {
+@import 'mixins';
+
+@media (min-width: $grid-width) {
   .container {
-    width:              960px;
-    margin-left:        auto;
-    margin-right:       auto;
-    *zoom:              1;
+    width:                $grid-width;
+    margin-left:          auto;
+    margin-right:         auto;
+    *zoom:                1;
+  }
+
+  #main {
+    #page-content, aside {
+      margin:             $grid-gutter-width/2;
+    }
+
+    #page-content {
+      width:              $nine-col-width;
+    }
+
+    aside {
+      width:              $three-col-width;
+    }
+  }
+}
+
+@media (min-width: $mobile-landscape-width), (max-width: $grid-width) {
+  #main {
+    #page-content, aside {
+      margin:             $grid-gutter-width/2;
+    }
+
+    #page-content {
+      width:              75%;
+    }
+
+    aside {
+      width:              20%;
+    }
   }
 }
 
 @media screen and (max-width: 768px) {
   html aside {
-    display:            none;
-    background-color:   black;
+    display:              none;
   }
 }
 
-nav#main {
-  text-align:           center;
+body {
+  background-image:       image-url('bg-pattern.png');
+  background-color:       #222;
+}
 
-  li {
-    display:              inline-block;
-    width:                25%;
+#main {
+  margin-top:             $page-top-margin;
+
+  #page-content {
+    float:                left;
+
+    .list {
+        li {
+          @include background_image("common/decorative_separator.png");
+          @include background_data("common/decorative_separator.png");
+          @include background_size(100% $secondary-splitter-height);
+
+          background-position:        bottom center;
+          background-repeat:          no-repeat;
+          padding-bottom:             $secondary-splitter-height + 20px;
+          margin-bottom:              30px;
+        }
+    }
   }
-}
 
-#page_content {
-  float:                left;
-  width:                75%;
-}
+  aside {
+    float:                left;
+    text-align:           right;
 
-aside {
-  float:                left;
-  width:                25%;
-}
+    nav {
+        @include background_image("common/decorative_separator.png");
+        @include background_data("common/decorative_separator.png");
+        @include background_size(100% $secondary-splitter-height);
 
-footer {
-  text-align:           center;
+        background-position:        bottom center;
+        background-repeat:          no-repeat;
+        padding-bottom:             $secondary-splitter-height + 20px;
+        margin-bottom:              30px;
+    }
+  }
 }

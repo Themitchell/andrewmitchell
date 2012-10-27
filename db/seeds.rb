@@ -16,9 +16,9 @@ themitchell = User.create!(
   :role => "admin"
 ) unless User.find_by_email('themitchell@me.com')
 
-unboxed = EmplymentHistoryItem.create!(
-  :company_name => "Unobxed Consulting",
-  :company_role => "Developer",
-  :role_description => "Developing web applications with Ruby, Ruby on Rails and Javascript. Behaviour & Test Driven Development and Agile methodolgies. On projects such Channel5.com, Reevoo.com, Agileista, Tipped and Contiki.co.uk",
-  :date_from => "01/06/2010"
-) unless EmplymentHistoryItem.find_by_company_name("Unboxed Consulting")
+# unboxed = EmplymentHistoryItem.create!(
+#   :company_name => "Unobxed Consulting",
+#   :company_role => "Developer",
+#   :role_description => "Developing web applications with Ruby, Ruby on Rails and Javascript. Behaviour & Test Driven Development and Agile methodolgies. On projects such Channel5.com, Reevoo.com, Agileista, Tipped and Contiki.co.uk",
+#   :date_from => "01/06/2010"
+# ) unless EmplymentHistoryItem.find_by_company_name("Unboxed Consulting")

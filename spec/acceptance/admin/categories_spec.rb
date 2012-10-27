@@ -64,6 +64,8 @@ feature "Admin Posts Pages", %q{
     click_button "Save"
 
     current_path.should == admin_category_path(Category.last)
+
+    page.should have_content "Name dummy content"
   end
 
   scenario "Editing a category" do
@@ -74,6 +76,8 @@ feature "Admin Posts Pages", %q{
     click_button "Save"
 
     current_path.should == admin_category_path(category)
+
+    page.should have_content "Name dummy content updated"
   end
 
   scenario "pagination on the categories index" do

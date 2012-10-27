@@ -1,10 +1,10 @@
 module ApplicationHelper
   def published_on_text(resource)
-    resource.published_on.strftime("%d %B, %Y")
+    resource.published_on.strftime(DATE_FORMAT_LONG)
   end
 
   def comment_published_on_text(resource)
-    resource.created_at.strftime("%d %B, %Y")
+    resource.created_at.strftime(DATE_FORMAT_LONG)
   end
 
   def commentable_path(commentable)

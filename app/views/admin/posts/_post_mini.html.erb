@@ -1,12 +1,8 @@
 <tr>
   <td><%= post_mini.id %></td>
-  <td><%= post_mini.author_id %></td>
-  <td><%= post_mini.created_at %></td>
-  <td><%= post_mini.updated_at %></td>
-  <td><%= post_mini.permalink %></td>
+  <td><%= post_mini.author.username %></td>
   <td><%= post_mini.title %></td>
-  <td><%= post_mini.body %></td>
-  <td><%= post_mini.published_on %></td>
+  <td><%= published_on_text(post_mini) %></td>
   <td><%= post_mini.category.display_name %></td>
   <td><%= link_to "Show", admin_post_path(post_mini) %></td>
   <td><%= link_to 'Edit', edit_admin_post_path(post_mini) %></td>

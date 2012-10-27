@@ -1,0 +1,19 @@
+@mixin background_image ($filename) {
+  background-image: image-url(1x/#{$filename});
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+  only screen and (-o-min-device-pixel-ratio: 3/2),
+  only screen and (min--moz-device-pixel-ratio: 1.5),
+  only screen and (min-device-pixel-ratio: 1.5) {
+    background-image: image-url(2x/#{$filename});
+  }
+}
+
+@mixin background_data ($filename) {
+  background-image: asset-data-url(2x/#{$filename});
+}
+
+@mixin background_size ($size) {
+  -moz-background-size: $size;
+  background-size: $size;
+}

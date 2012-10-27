@@ -6,11 +6,9 @@ feature "Admin Posts Pages", %q{
   I want a posts admin interface
 } do
 
-  background do
-    @category = FactoryGirl.create(:category)
-    @admin = FactoryGirl.create(:admin)
-    login_as(@admin)
-  end
+  let!(:category) { FactoryGirl.create(:category) }
+  let(:admin)     { FactoryGirl.create(:admin) }
+  background { login_as(admin) }
 
   scenario "navigation" do
     post = FactoryGirl.create :post
@@ -46,13 +44,9 @@ feature "Admin Posts Pages", %q{
     within :xpath, "//table" do
       within :xpath, "tr[1]" do
         page.should have_content post.id
-        page.should have_content post.author_id
-        page.should have_content post.created_at
-        page.should have_content post.updated_at
-        page.should have_content post.permalink
+        page.should have_content post.author.username
         page.should have_content post.title
-        page.should have_content post.body
-        page.should have_content post.published_on
+        page.should have_content post.published_on.strftime('%d %B, %Y')
         page.should have_content post.category.display_name
         click_link "Show"
       end
@@ -66,11 +60,16 @@ feature "Admin Posts Pages", %q{
 
     fill_in "Title", :with => "Title dummy content"
     fill_in "Body", :with => "Body dummy content"
-    fill_in "Published on", :with => "02-03-2004"
-    select @category.display_name, :from => "Category"
+    fill_in "Published on", :with => "02 March, 2004"
+    select category.display_name, :from => "Category"
     click_button "Save"
 
     current_path.should == admin_post_path(Post.last)
+
+    page.should have_content "Title dummy content"
+    page.should have_content "Body dummy content"
+    page.should have_content "02 March, 2004"
+    page.should have_content category.display_name
   end
 
   scenario "Editing a post" do
@@ -79,11 +78,16 @@ feature "Admin Posts Pages", %q{
 
     fill_in "Title", :with => "Title dummy content updated"
     fill_in "Body", :with => "Body dummy content updated"
-    fill_in "Published on", :with => "03-04-2005"
-    select @category.display_name, :from => "Category"
+    fill_in "Published on", :with => "03 April, 2005"
+    select category.display_name, :from => "Category"
     click_button "Save"
 
     current_path.should == admin_post_path(post)
+
+    page.should have_content "Title dummy content updated"
+    page.should have_content "Body dummy content updated"
+    page.should have_content "03 April, 2005"
+    page.should have_content category.display_name
   end
 
   scenario "pagination on the posts index" do

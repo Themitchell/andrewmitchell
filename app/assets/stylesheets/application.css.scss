@@ -1,0 +1,44 @@
+/*
+ *= require_self
+*/
+
+// Breakpoints
+$large: 1200px;
+$medium: 1024px;
+$small: 640px;
+
+// Brand
+$brand-color:                 #00CCFF;
+$brand-font:                  'Lato', Sans-Serif;
+
+// Fonts
+$font-weight-light:           100;
+$font-weight-book:            300;
+$font-weight-normal:          400;
+$font-weight-bold:            700;
+$font-weight-ultra-bold:      900;
+
+// Page Structure Sizes
+$grid-width:                  960px;
+$grid-gutter-width:           20px;
+
+$splitter-height:             18px;
+$secondary-splitter-height:   5px;
+
+$mobile-landscape-width:      768px;
+
+$nine-col-width:              (($grid-width/12)*9) - $grid-gutter-width;
+$three-col-width:             (($grid-width/12)*3) - $grid-gutter-width;  
+
+$header-height:               40px;
+$head-nav-border-width:       1px;
+$main-nav-height:             25px;
+$footer-height:               25px;
+
+$page-top-margin:             $header-height + $head-nav-border-width + $main-nav-height + $splitter-height + 20px;
+
+@import "reset.css.scss";
+@import "common.css.scss";
+@import "layout.css.scss";
+@import "header.css.scss";
+@import "posts.css.scss";
