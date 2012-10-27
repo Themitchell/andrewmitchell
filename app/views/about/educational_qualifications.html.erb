@@ -1,6 +1,9 @@
+<% content_for :aside do %>
+  <%= render :partial => 'about_nav' %>
+<% end %>
+
 <% if @educational_qualifications.any? %>
   <section name="educational_qualifications" id="educational_qualifications">
-    <%= render :partial => 'about_nav' %>
     <%= bootstrap_page_header :h1, 'Educational Qualifications' %>
 
     <ol class="list">

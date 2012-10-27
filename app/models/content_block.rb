@@ -13,5 +13,9 @@ class ContentBlock < ActiveRecord::Base
   
   # Validations
   validates :name, :presence => true, :uniqueness => true
+
+  # Attributes
+  attr_accessible :body,
+                  :name
   
 end

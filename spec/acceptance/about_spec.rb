@@ -6,9 +6,6 @@ feature "About Page", %q{
   I want to view a personal profile including my cv
 } do
 
-  background do
-  end
-
   scenario "viewing the about page" do
     @content_block = FactoryGirl.create(:content_block, name: "personal statement", body: "<p>some bunch  of text here</p>")
     

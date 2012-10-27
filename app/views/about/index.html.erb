@@ -1,7 +1,10 @@
-<% if @personal_statement && @personal_statement.body.present? %>
-    <%= render :partial => 'about_nav' %>
-    <%= bootstrap_page_header :h1, 'About' %>
+<% content_for :aside do %>
+  <%= render :partial => 'about_nav' %>
+<% end %>
 
+<%= bootstrap_page_header :h1, 'About' %>
+
+<% if @personal_statement && @personal_statement.body.present? %>
     <div id="about_me">
       <%= @personal_statement.body.html_safe %>
     </div>
