@@ -83,6 +83,10 @@ body {
         background-repeat:          no-repeat;
         padding-bottom:             $secondary-splitter-height + 20px;
         margin-bottom:              30px;
+
+        li {
+          margin-bottom:            8px;
+        }
     }
   }
 }
