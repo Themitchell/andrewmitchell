@@ -1,9 +1,3 @@
-
-* {
-  margin:                         0;
-  padding:                        0;
-}
-
 article, aside, details, figcaption, figure,
 footer, header, hgroup, nav, section {
   display:                        block;
@@ -19,10 +13,15 @@ a {
   text-decoration:                none;
 }
 
-html {
+body {
   font-family:                    Helvetica Neue, Helvetica, Arial, Sans-serif;
   font-size:                      100%;
   font-weight:                    $font-weight-light;
   letter-spacing:                 0.15em;
   color:                          white;
+
+  * {
+    margin:                         0;
+    padding:                        0;
+  }
 }
