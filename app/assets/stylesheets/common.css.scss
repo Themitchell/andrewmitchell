@@ -1,6 +1,7 @@
 @import 'mixins';
 
 h1, h2, h3, h4 {
+  font-family:              $brand-font;
   font-weight:              100;
   margin-bottom:            1em;
 }
