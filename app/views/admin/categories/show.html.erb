@@ -12,22 +12,22 @@
   </li>
   <li>
     <strong>Author:</strong>
-    <%= @category.display_name %>
-  </li>
-  <li>
-    <strong>Permalink:</strong>
-    <%= @category.display_name %>
-  </li>
-  <li>
-    <strong>Created at:</strong>
-    <%= @category.display_name %>
-  </li>
-  <li>
-    <strong>Updated at:</strong>
-    <%= @category.display_name %>
+    <%= @category.author.username %>
   </li>
   <li>
     <strong>Name:</strong>
     <%= @category.name %>
+  </li>
+  <li>
+    <strong>Permalink:</strong>
+    <%= @category.permalink %>
+  </li>
+  <li>
+    <strong>Created at:</strong>
+    <%= @category.created_at %>
+  </li>
+  <li>
+    <strong>Updated at:</strong>
+    <%= @category.updated_at %>
   </li>
 </ol>

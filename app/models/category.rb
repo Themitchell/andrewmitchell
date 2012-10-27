@@ -18,7 +18,7 @@ class Category < ActiveRecord::Base
 
 
   belongs_to :author, :class_name => "User"
-  has_permalink :name
+  has_permalink :name, :update => true
 
   # Validations
   validates :name, :presence => true, :uniqueness => true

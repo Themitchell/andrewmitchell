@@ -20,11 +20,11 @@
   <nav id="main-nav">
     <%
       render_tabnav :class => "container" do |n|
-        # n.add_tab do |t|
-        #   t.named "Categories"
-        #   t.links_to admin_categories_path
-        #   t.highlights_on :controller => :categories
-        # end
+        n.add_tab do |t|
+          t.named "Categories"
+          t.links_to admin_categories_path
+          t.highlights_on :controller => :categories
+        end
         n.add_tab do |t|
           t.named "Posts"
           t.links_to admin_posts_path

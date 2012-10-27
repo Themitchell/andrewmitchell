@@ -6,10 +6,8 @@ feature "Admin Posts Pages", %q{
   I want a categories admin interface
 } do
 
-  background do
-    @admin = FactoryGirl.create(:admin)
-    login_as(@admin)
-  end
+  let(:admin) { FactoryGirl.create(:admin) }
+  background { login_as(admin) }
 
   scenario "navigation" do
     category = FactoryGirl.create :category
@@ -38,17 +36,15 @@ feature "Admin Posts Pages", %q{
     page.should have_content "There are currently no categories."
   end
 
-  scenario "Viewing a category" do
+  scenario "Viewing a category index" do
     category = FactoryGirl.create :category
     visit admin_categories_path
 
     within :xpath, "//table" do
       within :xpath, "tr[1]" do
         page.should have_content category.id
-        page.should have_content category.author_id
-        page.should have_content category.permalink
+        page.should have_content category.author.username
         page.should have_content category.created_at
-        page.should have_content category.updated_at
         page.should have_content category.name
         click_link "Show"
       end
@@ -65,7 +61,9 @@ feature "Admin Posts Pages", %q{
 
     current_path.should == admin_category_path(Category.last)
 
+    page.should have_content admin.username
     page.should have_content "Name dummy content"
+    page.should have_content "name-dummy-content"
   end
 
   scenario "Editing a category" do
@@ -75,9 +73,13 @@ feature "Admin Posts Pages", %q{
     fill_in "Name", :with => "Name dummy content updated"
     click_button "Save"
 
+    category.reload
+
     current_path.should == admin_category_path(category)
 
+    page.should have_content admin.username
     page.should have_content "Name dummy content updated"
+    page.should have_content "name-dummy-content-updated"
   end
 
   scenario "pagination on the categories index" do

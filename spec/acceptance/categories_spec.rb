@@ -14,8 +14,8 @@ feature "Categories", %q{
     @post2 = FactoryGirl.create(:post, category: @cat2)
   end
 
-  scenario "categories index ordered alphabetically" do
-    visit root_path
+  scenario "posts index ordered alphabetically" do
+    visit posts_path
 
     within :xpath, "//nav[@id='category_nav']/ul" do
       page.should have_xpath( "li[1]/a[@href='#{posts_category_path(@cat2)}']", :text => @cat2.name)
