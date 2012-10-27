@@ -7,7 +7,7 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
 themitchell = User.create!(
-  :username => 'The Mitchell',
+  :username => 'Themitchell',
   :first_name => 'Andrew',
   :last_name => 'Mitchell',
   :email => 'themitchell@me.com',
