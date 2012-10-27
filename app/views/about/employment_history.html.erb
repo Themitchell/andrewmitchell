@@ -4,7 +4,7 @@
 
 <% if @employment_history.any? %>
   <section name="employment_history" id="employment_history">
-    <%= bootstrap_page_header :h1, 'Employment History' %>
+    <h1>Employment History</h1>
 
     <ol class="list">
       <%= render :partial => "employment_history_item", :collection => @employment_history %>

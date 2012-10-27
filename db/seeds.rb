@@ -39,13 +39,6 @@ freelance = EmploymentHistoryItem.create!(
   date_from:        "01/01/2010",
   date_to:          "01/06/2010"
 ) unless EmploymentHistoryItem.find_by_company_name("Freelance PHP Developer")
-#  name        :string(255)
-#  institution :string(255)
-#  grade       :string(255)
-#  created_at  :datetime
-#  updated_at  :datetime
-#  date_from   :date
-#  date_to     :date
 
 masters = EducationalQualification.create!(
   name:         'MSc Advanced Audio Production',

@@ -24,21 +24,21 @@ feature "About Page", %q{
     
     visit employment_history_path
     
-    within :xpath, "//section[@id='employment_history']/ol" do
+    within "section#employment_history ol" do
       within :xpath, "li[1]" do
-        page.should have_xpath("h3", :text => "Unboxed")
-        page.should have_xpath("h3/span[@class='company_location']", :text => @eh_item_1.location)
-        page.should have_xpath("h5[@class='role']", :text => @eh_item_1.company_role)
-        page.should have_xpath("div[@class='role_description']", :text => @eh_item_1.role_description)
-        within :xpath, "p[@class='time_period']" do
-          page.should have_xpath("span[@class='date_from']", :text => @eh_item_1.date_from.strftime("%B %Y"))
-          page.should have_xpath("span[@class='date_to']", :text => "ongoing")
+        page.should have_css "h2", :text => "Unboxed"
+        page.should have_css "h2 span.company_location", :text => @eh_item_1.location
+        page.should have_css "h3.role", :text => @eh_item_1.company_role
+        page.should have_css "div.role_description", :text => @eh_item_1.role_description
+        within "p.time_period" do
+          page.should have_css "span.date_from", :text => @eh_item_1.date_from.strftime("%B %Y")
+          page.should have_css "span.date_to", :text => "ongoing"
         end
       end
       
-      page.should have_xpath("li[2]/h3", :text => "Jigsore")
-      page.should have_xpath("li[3]/h3", :text => "Puzzled Records")
-      page.should have_xpath("li[4]/h3", :text => "BSS")
+      page.should have_xpath("li[2]/h2", :text => "Jigsore")
+      page.should have_xpath("li[3]/h2", :text => "Puzzled Records")
+      page.should have_xpath("li[4]/h2", :text => "BSS")
     end
   end
   
@@ -50,20 +50,20 @@ feature "About Page", %q{
     
     visit educational_qualifications_path
     
-    within :xpath, "//section[@id='educational_qualifications']/ol" do
+    within "section#educational_qualifications ol" do
       within :xpath, "li[1]" do
-        page.should have_xpath("h3", :text => @eq1.name)
-        page.should have_xpath("h3/span[@class='grade']", :text => @eq1.grade)
-        page.should have_xpath("h5[@class='institution']", :text => @eq1.institution)
-        within :xpath, "p[@class='time_period']" do
-          page.should have_xpath("span[@class='date_from']", :text => @eq1.date_from.strftime("%B %Y"))
-          page.should have_xpath("span[@class='date_to']", :text => "ongoing")
+        page.should have_css "h2", :text => @eq1.name
+        page.should have_css "h2 span.grade", :text => @eq1.grade
+        page.should have_css "h3.institution", :text => @eq1.institution
+        within "p.time_period" do
+          page.should have_css "span.date_from", :text => @eq1.date_from.strftime("%B %Y")
+          page.should have_css "span.date_to", :text => "ongoing"
         end        
       end
       
-      page.should have_xpath("li[2]/h3", :text => @eq2.name)
-      page.should have_xpath("li[3]/h3", :text => @eq3.name)
-      page.should have_xpath("li[4]/h3", :text => @eq4.name)
+      page.should have_xpath("li[2]/h2", :text => @eq2.name)
+      page.should have_xpath("li[3]/h2", :text => @eq3.name)
+      page.should have_xpath("li[4]/h2", :text => @eq4.name)
     end
   end
   
@@ -71,14 +71,14 @@ feature "About Page", %q{
     
     visit about_path
     page.status_code.should == 200
-    page.should_not have_xpath("//section[@id='personal_statement']")
+    page.should_not have_css "section#personal_statement"
     
     visit employment_history_path
     page.status_code.should == 200
-    page.should_not have_xpath("//section[@id='employment_history']")
+    page.should_not have_css "section#employment_history"
     
     visit educational_qualifications_path
     page.status_code.should == 200
-    page.should_not have_xpath("//section[@id='educational_qualifications']")
+    page.should_not have_css "section#educational_qualifications"
   end
 end
