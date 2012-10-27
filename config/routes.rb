@@ -31,7 +31,7 @@ AndrewMitchell::Application.routes.draw do
   resources   :comments
 
   # Posts
-  resources   :posts, :only => [:show, :index] do
+  resources   :posts, :only => [:show] do
     resources   :comments, :except => [:delete]
   end
   get         'posts/category/:category_permalink'  => 'posts#category', :as => 'posts_category'

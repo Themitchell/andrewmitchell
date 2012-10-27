@@ -51,7 +51,7 @@ describe Admin::CategoriesController do
     context "with valid params" do
       before { expect { put :update, :id => expected_category.to_param, :category => FactoryGirl.attributes_for(:category) }.not_to change(Category, :count) }
       it { should assign_to(:category).with(expected_category) }
-      it { should redirect_to admin_category_path(expected_category) }
+      it { should redirect_to admin_category_path(expected_category.reload) }
     end
     context "with invalid params" do
       before { expect { put :update, :id => expected_category.to_param, :category => { :name => nil } }.not_to change(Category, :count) }

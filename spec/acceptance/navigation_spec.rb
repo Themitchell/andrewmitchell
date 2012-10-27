@@ -11,9 +11,14 @@ feature "User Navigation", %q{
 
   scenario "navigating to the blog page" do
     visit root_path
-    page.should_not have_link "Blog", :href => "/blog"
-    # click_link "Blog"
-    # current_path.should == posts_path
+    click_link "Blog"
+    current_path.should == root_path
+  end
+
+  scenario "navigating to the about page" do
+    visit root_path
+    click_link "About Me"
+    current_path.should == about_path
   end
   
   scenario "navigating to the photo albums page" do
@@ -21,13 +26,6 @@ feature "User Navigation", %q{
     page.should_not have_link "Photo Albums", :href => "/photoalbums"
     # click_link "Photo Albums"
     # current_path.should == photoalbums_path
-  end
-  
-  scenario "navigating to the about page" do
-    visit root_path
-    page.should_not have_link "About", :href => "/about"
-    # click_link "About"
-    # current_path.should == about_path
   end
   
   scenario "navigating to the portfolio page" do

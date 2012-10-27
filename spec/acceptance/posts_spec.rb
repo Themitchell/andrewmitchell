@@ -52,7 +52,7 @@ feature "Blog Pages", %q{
     end
     old_post = FactoryGirl.create(:post, published_on: 1.year.ago)
 
-    visit posts_path
+    visit root_path
 
     posts.each do |post|
       page.should have_content(post.title)
