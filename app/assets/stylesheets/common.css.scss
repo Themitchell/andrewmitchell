@@ -39,13 +39,23 @@ a {
 form {
   text-align:               left;
 
-  label {
+  label, input, textarea {
     display:                block;
   }
 
+  label {
+    margin-bottom:          5px;
+
+    input {
+      display:              inline;
+    }
+  }
+
   input, textarea {
-    display:                block;
-    margin-bottom:          20px;
+    @include border_radius(4px);
+    margin-bottom:          15px;
+    line-height:            2em;
+    min-width:              250px;
   }
 }
 
